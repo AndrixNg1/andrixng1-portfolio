@@ -1,43 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Sidebar from '../components/Layout/Sidebar.astro';
-import TopNav from '../components/Layout/TopNav.astro';
 import Gallery from '../components/Sections/Gallery.astro';
 import Photos from '../components/Sections/Photos.astro';
 import Events from '../components/Sections/Events.astro';
-import Footer from '../components/Footer.astro';
 ---
 
 <Layout title="Gallery | AndrixNg1">
-	<div class="max-w-[1400px] mx-auto p-4 md:p-8 flex flex-col lg:flex-row gap-8 relative">
-		<!-- Left Sidebar (Sticky) -->
-		<Sidebar />
-
-		<!-- Main Content Area -->
-		<main class="flex-1 flex flex-col gap-8 min-w-0">
-			<!-- Top Navigation (Sticky) -->
-			<TopNav />
-
-			<!-- Content Sections -->
-			<div class="flex flex-col gap-8" id="content-sections">
-				<section>
-					<Gallery />
-				</section>
-				<section>
-					<Photos />
-				</section>
-				<section>
-					<Events />
-				</section>
-			</div>
-
-			<Footer />
-		</main>
-	</div>
-
-	<!-- GSAP animations for the page load and scroll -->
-	<script>
-		import { initPageAnimations } from '../assets/js/animations.js';
-		initPageAnimations();
-	</script>
+	<section>
+		<Gallery />
+	</section>
+	<section>
+		<Photos />
+	</section>
+	<section>
+		<Events />
+	</section>
 </Layout>

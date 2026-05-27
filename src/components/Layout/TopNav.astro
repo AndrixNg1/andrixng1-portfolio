@@ -1,6 +1,5 @@
 ---
-import ThemeToggle from '../ThemeToggle.astro';
-import { User, FolderGit2, Image as ImageIcon, CalendarDays, Settings2, Mail, Download } from 'lucide-astro';
+import { User, FolderGit2, Image as ImageIcon, Mail } from 'lucide-astro';
 
 const navItems = [
   { name: 'About', icon: User, href: '/' },
@@ -10,25 +9,20 @@ const navItems = [
 ];
 ---
 
-<nav class="w-full bg-bg-primary border border-border rounded-2xl p-4 shadow-[var(--card-shadow)] sticky top-8 z-50 flex items-center justify-between gap-4 overflow-x-auto custom-scrollbar">
-  <ul class="flex items-center gap-2 md:gap-6 min-w-max">
+<nav class="sticky top-8 z-40 w-full bg-bg-primary/80 backdrop-blur-md border border-border rounded-2xl p-2 flex items-center justify-between shadow-[var(--card-shadow)]">
+  <ul class="flex items-center gap-1 sm:gap-2 w-full overflow-x-auto custom-scrollbar">
     {navItems.map((item) => (
-      <li>
-        <a href={item.href} class="flex items-center gap-2 text-sm font-medium text-text-secondary hover:text-accent-green transition-colors px-2 py-1 rounded-lg hover:bg-bg-secondary">
+      <li class="flex-1">
+        <a 
+          href={item.href}
+          class="flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-medium text-text-secondary hover:bg-bg-tertiary hover:text-text-primary transition-all duration-300"
+        >
           <item.icon class="w-4 h-4" />
           <span class="hidden sm:inline">{item.name}</span>
         </a>
       </li>
     ))}
   </ul>
-
-  <div class="flex items-center gap-4 shrink-0">
-    <ThemeToggle />
-    <button class="flex items-center gap-2 bg-accent-green hover:bg-accent-orange text-white px-4 py-2 rounded-xl text-sm font-medium transition-colors shadow-lg shadow-accent-green/20">
-      <Download class="w-4 h-4" />
-      <span class="hidden sm:inline">Download CV</span>
-    </button>
-  </div>
 </nav>
 
 <style>

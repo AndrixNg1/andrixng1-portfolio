@@ -1,0 +1,44 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { ArrowLeft } from 'lucide-astro';
+import { galleryItems } from '../../components/Sections/Gallery.astro';
+import Card from '../../components/ui/Card.astro';
+import SectionHeader from '../../components/ui/SectionHeader.astro';
+
+export function getStaticPaths() {
+  return galleryItems.map((item) => ({
+    params: { slug: item.id },
+    props: { design: item },
+  }));
+}
+
+const { design } = Astro.props;
+---
+
+<Layout title={`${design.title} | Gallery | AndrixNg1`}>
+  <section>
+    <Card className="relative">
+      <a href="/gallery" class="inline-flex items-center gap-2 text-sm text-text-secondary hover:text-accent-green mb-6 transition-colors group">
+        <ArrowLeft class="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> Back to Gallery
+      </a>
+      
+      <div class="mb-8">
+        <h1 class="text-3xl md:text-4xl font-bold mb-3">{design.title}</h1>
+        <p class="text-text-secondary text-lg max-w-3xl leading-relaxed">{design.description}</p>
+      </div>
+
+      <div class="flex flex-col gap-6">
+        {design.images.map((img, index) => (
+          <div class="rounded-2xl overflow-hidden border border-border bg-bg-tertiary">
+            <img 
+              src={img} 
+              alt={`${design.title} - Image ${index + 1}`}
+              class="w-full h-auto object-cover"
+              loading={index === 0 ? "eager" : "lazy"}
+            />
+          </div>
+        ))}
+      </div>
+    </Card>
+  </section>
+</Layout>

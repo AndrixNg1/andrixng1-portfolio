@@ -1,4 +1,8 @@
 ---
+import ThemeToggle from '../components/ThemeToggle.astro';
+import Sidebar from '../components/Layout/Sidebar.astro';
+import TopNav from '../components/Layout/TopNav.astro';
+import Footer from '../components/Footer.astro';
 import '../assets/styles/app.css';
 
 interface Props {
@@ -12,48 +16,39 @@ const { title } = Astro.props;
 <html lang="en" class="dark">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content="AndrixNg1 - Premium Software Engineer Portfolio" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title} | Software Engineer</title>
+		<title>{title}</title>
 		
-		<!-- Inter Font -->
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-		<!-- Devicon for Skills Logos -->
-		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-
-		<!-- Prevent FOUC for theme -->
-		<script is:inline>
-			const theme = (() => {
-				if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-					return localStorage.getItem('theme');
-				}
-				if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-					return 'dark';
-				}
-				return 'light';
-			})();
-		
-			if (theme === 'light') {
-				document.documentElement.classList.remove('dark');
-			} else {
-				document.documentElement.classList.add('dark');
-			}
-			window.localStorage.setItem('theme', theme);
-		</script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 	</head>
-	<body class="bg-bg-primary text-text-primary antialiased min-h-screen overflow-x-hidden">
-		<slot />
+	<body class="bg-bg-primary text-text-primary antialiased min-h-screen selection:bg-accent-green/30 selection:text-accent-green overflow-x-hidden font-sans">
+		<ThemeToggle />
+		
+		<div class="max-w-[1400px] mx-auto p-4 md:p-8 flex flex-col lg:flex-row gap-8 relative">
+			<Sidebar />
+
+			<main class="flex-1 flex flex-col gap-8 min-w-0">
+				<TopNav />
+
+				<div class="flex flex-col gap-8" id="content-sections">
+					<slot />
+				</div>
+
+				<Footer />
+			</main>
+		</div>
 
 		<script>
+			import { initThemeToggle } from '../assets/js/themeToggle.js';
 			import { initLenis } from '../assets/js/lenisSetup.js';
-			
-			// Initialize global lenis scrolling
+			import { initPageAnimations } from '../assets/js/animations.js';
+
+			initThemeToggle();
 			initLenis();
+			initPageAnimations();
 		</script>
 	</body>
 </html>

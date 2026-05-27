@@ -1,45 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Sidebar from '../components/Layout/Sidebar.astro';
-import TopNav from '../components/Layout/TopNav.astro';
 import About from '../components/Sections/About.astro';
 import Skills from '../components/Sections/Skills.astro';
 import Services from '../components/Sections/Services.astro';
-import Footer from '../components/Footer.astro';
 ---
 
-<Layout title="AndrixNg1">
-	<div class="max-w-[1400px] mx-auto p-4 md:p-8 flex flex-col lg:flex-row gap-8 relative">
-		<!-- Left Sidebar (Sticky) -->
-		<Sidebar />
-
-		<!-- Main Content Area -->
-		<main class="flex-1 flex flex-col gap-8 min-w-0">
-			<!-- Top Navigation (Sticky) -->
-			<TopNav />
-
-			<!-- Content Sections -->
-			<div class="flex flex-col gap-8" id="content-sections">
-				<section>
-					<About />
-				</section>
-				<section>
-					<Skills />
-				</section>
-				<section>
-					<Services />
-				</section>
-			</div>
-
-			<Footer />
-		</main>
-	</div>
-
-	<!-- GSAP animations for the page load and scroll -->
-	<script>
-		import { initPageAnimations } from '../assets/js/animations.js';
-		
-		// Run animations on mount
-		initPageAnimations();
-	</script>
+<Layout title="Home | AndrixNg1">
+	<section>
+		<About />
+	</section>
+	<section>
+		<Skills />
+	</section>
+	<section>
+		<Services />
+	</section>
 </Layout>
