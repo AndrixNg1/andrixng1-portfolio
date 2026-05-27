@@ -1,0 +1,47 @@
+---
+import { User, Code2, Server, Smartphone, Database, Cloud, Zap, Layers, GitBranch, Cpu } from 'lucide-astro';
+
+const services = [
+  { title: "Fullstack product engineering", icon: Layers, color: "text-blue-500" },
+  { title: "Scalable backend architecture", icon: Server, color: "text-indigo-500" },
+  { title: "High-quality UI/UX implementation", icon: Code2, color: "text-purple-500" },
+  { title: "Web & mobile application dev", icon: Smartphone, color: "text-pink-500" },
+  { title: "REST API design & integration", icon: GitBranch, color: "text-blue-600" },
+  { title: "Database modeling & optimization", icon: Database, color: "text-teal-500" },
+  { title: "Cloud deployment & CI/CD", icon: Cloud, color: "text-cyan-500" },
+  { title: "Authentication & authorization", icon: Cpu, color: "text-green-500" },
+  { title: "Performance optimization", icon: Zap, color: "text-yellow-500" }
+];
+---
+
+<section id="about" class="bg-bg-primary border border-border rounded-3xl p-6 md:p-10 shadow-[var(--card-shadow)] relative overflow-hidden group">
+  <!-- Decorative background glow -->
+  <div class="absolute -top-24 -right-24 w-64 h-64 bg-accent-blue/5 rounded-full blur-3xl group-hover:bg-accent-purple/10 transition-colors duration-1000"></div>
+
+  <div class="relative z-10">
+    <div class="flex items-center gap-3 mb-8">
+      <User class="w-6 h-6 text-accent-blue" />
+      <h2 class="text-2xl font-bold">About Me</h2>
+    </div>
+
+    <p class="text-lg font-medium text-text-primary mb-4 leading-relaxed">
+      I build performant, scalable and user-centered digital products.
+    </p>
+    <p class="text-text-secondary mb-10 leading-relaxed max-w-3xl">
+      I work across the full software lifecycle: product thinking, architecture, frontend, backend, mobile, APIs, databases, cloud deployment, automation and continuous improvement.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {services.map((service) => (
+        <div class="flex items-center gap-4 p-4 rounded-2xl bg-bg-secondary/50 border border-border/50 hover:border-accent-blue/30 hover:bg-bg-secondary hover:shadow-lg transition-all duration-300 group/item cursor-default">
+          <div class={`p-3 rounded-xl bg-bg-primary shadow-sm group-hover/item:scale-110 transition-transform duration-300 ${service.color}`}>
+            <service.icon class="w-5 h-5" />
+          </div>
+          <span class="text-sm font-medium text-text-secondary group-hover/item:text-text-primary transition-colors">
+            {service.title}
+          </span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

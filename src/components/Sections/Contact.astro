@@ -1,0 +1,71 @@
+---
+import { Mail, Send, MessageSquare, Linkedin, Github } from 'lucide-astro';
+---
+
+<section id="contact" class="bg-bg-primary border border-border rounded-3xl p-6 md:p-10 shadow-[var(--card-shadow)] relative overflow-hidden">
+  <!-- Glowing background elements -->
+  <div class="absolute -bottom-32 -left-32 w-64 h-64 bg-accent-blue/10 rounded-full blur-3xl"></div>
+  <div class="absolute -top-32 -right-32 w-64 h-64 bg-accent-purple/10 rounded-full blur-3xl"></div>
+
+  <div class="relative z-10 flex flex-col md:flex-row gap-12">
+    <!-- Contact Info -->
+    <div class="w-full md:w-1/2">
+      <div class="flex items-center gap-3 mb-6">
+        <Mail class="w-6 h-6 text-accent-blue" />
+        <h2 class="text-3xl font-bold">Let's work together</h2>
+      </div>
+      <p class="text-text-secondary mb-8 leading-relaxed max-w-md">
+        I'm currently available for freelance work and full-time opportunities. 
+        If you have a project that needs some creative engineering, I'd love to hear about it.
+      </p>
+
+      <div class="flex flex-col gap-4">
+        <a href="mailto:andrixngoyi243@gmail.com" class="flex items-center gap-4 p-4 rounded-2xl bg-bg-secondary border border-border hover:border-accent-blue transition-colors group">
+          <div class="w-10 h-10 rounded-full bg-bg-primary flex items-center justify-center group-hover:text-accent-blue transition-colors">
+            <Mail class="w-5 h-5" />
+          </div>
+          <div>
+            <p class="text-xs text-text-muted">Email</p>
+            <p class="font-medium">andrixngoyi243@gmail.com</p>
+          </div>
+        </a>
+        <a href="#" class="flex items-center gap-4 p-4 rounded-2xl bg-bg-secondary border border-border hover:border-green-500 transition-colors group">
+          <div class="w-10 h-10 rounded-full bg-bg-primary flex items-center justify-center group-hover:text-green-500 transition-colors">
+            <MessageSquare class="w-5 h-5" />
+          </div>
+          <div>
+            <p class="text-xs text-text-muted">WhatsApp</p>
+            <p class="font-medium">Start a conversation</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="w-full md:w-1/2">
+      <form class="flex flex-col gap-4">
+        <div class="grid grid-cols-2 gap-4">
+          <div class="flex flex-col gap-1.5">
+            <label for="name" class="text-sm font-medium text-text-secondary">Name</label>
+            <input type="text" id="name" placeholder="John Doe" class="w-full bg-bg-secondary border border-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent-blue/50 transition-shadow" />
+          </div>
+          <div class="flex flex-col gap-1.5">
+            <label for="email" class="text-sm font-medium text-text-secondary">Email</label>
+            <input type="email" id="email" placeholder="john@example.com" class="w-full bg-bg-secondary border border-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent-blue/50 transition-shadow" />
+          </div>
+        </div>
+        <div class="flex flex-col gap-1.5">
+          <label for="subject" class="text-sm font-medium text-text-secondary">Subject</label>
+          <input type="text" id="subject" placeholder="Project Inquiry" class="w-full bg-bg-secondary border border-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent-blue/50 transition-shadow" />
+        </div>
+        <div class="flex flex-col gap-1.5">
+          <label for="message" class="text-sm font-medium text-text-secondary">Message</label>
+          <textarea id="message" rows="4" placeholder="Tell me about your project..." class="w-full bg-bg-secondary border border-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent-blue/50 transition-shadow resize-none"></textarea>
+        </div>
+        <button type="button" class="mt-2 w-full flex items-center justify-center gap-2 bg-text-primary text-bg-primary hover:bg-accent-blue hover:text-white py-3 rounded-xl font-medium transition-colors shadow-lg shadow-text-primary/10">
+          <Send class="w-4 h-4" /> Send Message
+        </button>
+      </form>
+    </div>
+  </div>
+</section>

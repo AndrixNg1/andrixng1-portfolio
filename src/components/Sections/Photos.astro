@@ -1,0 +1,26 @@
+---
+import { Camera } from 'lucide-astro';
+
+const photos = [
+  { id: 1, span: "md:col-span-2", height: "h-64" },
+  { id: 2, span: "md:col-span-1", height: "h-64" },
+  { id: 3, span: "md:col-span-1", height: "h-64" },
+  { id: 4, span: "md:col-span-2", height: "h-64" }
+];
+---
+
+<section id="photos" class="bg-bg-primary border border-border rounded-3xl p-6 md:p-10 shadow-[var(--card-shadow)] relative">
+  <div class="flex items-center gap-3 mb-8">
+    <Camera class="w-6 h-6 text-pink-500" />
+    <h2 class="text-2xl font-bold">Personal Photos</h2>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    {photos.map((photo) => (
+      <div class={`group relative overflow-hidden rounded-2xl bg-bg-tertiary border border-border cursor-pointer ${photo.span} ${photo.height}`}>
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiM2YjcyODAiIGZpbGwtb3BhY2l0eT0iMC4yIi8+PC9zdmc+')] opacity-30 mix-blend-overlay group-hover:scale-105 transition-transform duration-700"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      </div>
+    ))}
+  </div>
+</section>
