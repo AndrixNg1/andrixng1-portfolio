@@ -2,8 +2,6 @@
 import { Camera, X } from 'lucide-astro';
 import Card from '../ui/Card.astro';
 import SectionHeader from '../ui/SectionHeader.astro';
-
-// Use standard sizes, and use Tailwind grid spans to make it a dynamic bento layout
 const photos = [
   { image: '/images/me/37f9555d-78a2-4aac-8f4a-586f32fa0043.jpeg', span: 'col-span-2 row-span-2' },
   { image: '/images/me/ac37a55f-8cd8-4251-921e-921bfa482c19.jpeg', span: 'col-span-1 row-span-1' },
@@ -53,38 +51,6 @@ const photos = [
 </dialog>
 
 <script>
-  const modal = document.getElementById('photo-lightbox');
-  const closeBtn = document.getElementById('lightbox-close');
-  const lightboxImg = document.getElementById('lightbox-img');
-
-  if (modal && closeBtn && lightboxImg) {
-    document.querySelectorAll('.photo-trigger').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const src = btn.getAttribute('data-photo-src');
-        if (src) {
-          lightboxImg.src = src;
-          modal.showModal();
-          // Small delay to allow display before animating opacity/scale
-          setTimeout(() => {
-            lightboxImg.classList.remove('scale-95', 'opacity-0');
-            lightboxImg.classList.add('scale-100', 'opacity-100');
-          }, 10);
-        }
-      });
-    });
-
-    const closeModal = () => {
-      lightboxImg.classList.remove('scale-100', 'opacity-100');
-      lightboxImg.classList.add('scale-95', 'opacity-0');
-      setTimeout(() => {
-        modal.close();
-        lightboxImg.src = '';
-      }, 300);
-    };
-
-    closeBtn.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) closeModal();
-    });
-  }
+  import { initPhotosModal } from '../../assets/js/photosModal.js';
+  initPhotosModal();
 </script>

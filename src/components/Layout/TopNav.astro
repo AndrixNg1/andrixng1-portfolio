@@ -1,5 +1,6 @@
 ---
-import { User, FolderGit2, Image as ImageIcon, Mail } from 'lucide-astro';
+import { User, FolderGit2, Image as ImageIcon, Mail, FileText } from 'lucide-astro';
+import ThemeToggle from '../ThemeToggle.astro';
 
 const navItems = [
   { name: 'About', icon: User, href: '/' },
@@ -9,13 +10,13 @@ const navItems = [
 ];
 ---
 
-<nav class="sticky top-8 z-40 w-full bg-bg-primary/80 backdrop-blur-md border border-border rounded-2xl p-2 flex items-center justify-between shadow-[var(--card-shadow)]">
-  <ul class="flex items-center gap-1 sm:gap-2 w-full overflow-x-auto custom-scrollbar">
+<nav class="sticky top-8 z-40 w-full bg-bg-primary/80 backdrop-blur-md border border-border rounded-2xl p-3 flex flex-wrap items-center justify-between shadow-[var(--card-shadow)] gap-4">
+  <ul class="flex items-center gap-1 sm:gap-2 flex-1 min-w-0 overflow-x-auto custom-scrollbar">
     {navItems.map((item) => (
-      <li class="flex-1">
+      <li>
         <a 
           href={item.href}
-          class="flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-medium text-text-secondary hover:bg-bg-tertiary hover:text-text-primary transition-all duration-300"
+          class="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium text-text-secondary hover:bg-bg-tertiary hover:text-text-primary transition-all duration-300"
         >
           <item.icon class="w-4 h-4" />
           <span class="hidden sm:inline">{item.name}</span>
@@ -23,6 +24,21 @@ const navItems = [
       </li>
     ))}
   </ul>
+
+  <div class="flex items-center gap-3 shrink-0 ml-auto">
+    <!-- Download CV Button -->
+    <a 
+      href="/cv.pdf" 
+      download
+      class="flex items-center gap-2 px-4 py-2.5 bg-bg-secondary border border-border rounded-xl text-sm font-medium text-text-primary hover:border-accent-green hover:text-accent-green transition-all duration-300 group"
+    >
+      <FileText class="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />
+      <span class="hidden sm:inline">Resume</span>
+    </a>
+    
+    <!-- Theme Toggle -->
+    <ThemeToggle />
+  </div>
 </nav>
 
 <style>
