@@ -1,14 +1,44 @@
 ---
-import { Image as ImageIcon, Maximize2 } from 'lucide-astro';
+import { Image as ImageIcon, X as XIcon } from 'lucide-astro';
 import Card from '../ui/Card.astro';
 import SectionHeader from '../ui/SectionHeader.astro';
 
 const galleryItems = [
-  { image: '/images/gallery-project/figma-maquette1.png', alt: 'Figma Maquette 1' },
-  { image: '/images/gallery-project/figma-maquette2.png', alt: 'Figma Maquette 2' },
-  { image: '/images/gallery-project/figma-mobile-maquette1.png', alt: 'Figma Mobile' },
-  { image: '/images/gallery-project/grk.png', alt: 'GRK Prosperity' },
-  { image: '/images/gallery-project/tjal.png', alt: 'TJA Logistics' }
+  { 
+    id: 'grk',
+    title: 'GRK Prosperity',
+    description: 'Premium SaaS landing page with dark mode, glassmorphism, and high-end visual aesthetics.',
+    thumbnail: '/images/gallery-project/grk.png',
+    images: ['/images/gallery-project/grk.png']
+  },
+  { 
+    id: 'tjal',
+    title: 'TJA Logistics',
+    description: 'Enterprise logistics platform with a clean UI, performance-focused design, and responsive layouts.',
+    thumbnail: '/images/gallery-project/tjal.png',
+    images: ['/images/gallery-project/tjal.png']
+  },
+  { 
+    id: 'figma1',
+    title: 'Figma Maquette – Desktop',
+    description: 'Desktop wireframe and mockup design created in Figma for a premium web application.',
+    thumbnail: '/images/gallery-project/figma-maquette1.png',
+    images: ['/images/gallery-project/figma-maquette1.png', '/images/gallery-project/figma-maquette2.png']
+  },
+  { 
+    id: 'figma-mobile',
+    title: 'Figma Maquette – Mobile',
+    description: 'Mobile-first mockup showcasing responsive design patterns for modern applications.',
+    thumbnail: '/images/gallery-project/figma-mobile-maquette1.png',
+    images: ['/images/gallery-project/figma-mobile-maquette1.png']
+  },
+  { 
+    id: 'figma2',
+    title: 'Figma Maquette – Variant',
+    description: 'Additional design variant exploring alternative layouts and color schemes.',
+    thumbnail: '/images/gallery-project/figma-maquette2.png',
+    images: ['/images/gallery-project/figma-maquette2.png', '/images/gallery-project/figma-maquette1.png']
+  }
 ];
 ---
 
@@ -17,19 +47,56 @@ const galleryItems = [
     <ImageIcon slot="icon" class="w-5 h-5" />
   </SectionHeader>
 
+  <!-- Gallery Grid -->
   <div class="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
     {galleryItems.map((item) => (
-      <div class="group relative overflow-hidden rounded-2xl break-inside-avoid border border-border bg-bg-tertiary">
+      <button
+        type="button"
+        class="gallery-trigger group relative overflow-hidden rounded-2xl break-inside-avoid border border-border bg-bg-tertiary w-full text-left cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent-green"
+        data-gallery-id={item.id}
+        data-gallery-title={item.title}
+        data-gallery-description={item.description}
+        data-gallery-images={JSON.stringify(item.images)}
+      >
         <img 
-          src={item.image} 
-          alt={item.alt}
+          src={item.thumbnail} 
+          alt={item.title}
           class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
           loading="lazy"
         />
-        <div class="absolute inset-0 bg-accent-green/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm cursor-pointer">
-          <Maximize2 class="w-8 h-8 text-white scale-50 group-hover:scale-100 transition-transform duration-500 delay-100" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+          <div>
+            <h4 class="text-white font-bold text-sm">{item.title}</h4>
+            <p class="text-white/70 text-xs mt-1">Click to view details</p>
+          </div>
         </div>
-      </div>
+      </button>
     ))}
   </div>
 </Card>
+
+<!-- Modal (native <dialog>) -->
+<dialog id="gallery-modal" class="fixed inset-0 z-[9999] w-full h-full max-w-full max-h-full m-0 p-0 bg-transparent backdrop:bg-black/80 backdrop:backdrop-blur-sm open:flex open:items-center open:justify-center">
+  <div class="relative bg-bg-primary border border-border rounded-3xl shadow-2xl w-[90vw] max-w-5xl max-h-[90vh] overflow-hidden flex flex-col">
+    <!-- Modal Header -->
+    <div class="flex items-center justify-between p-6 border-b border-border shrink-0">
+      <div>
+        <h3 id="modal-title" class="text-xl font-bold"></h3>
+        <p id="modal-description" class="text-sm text-text-secondary mt-1"></p>
+      </div>
+      <button id="modal-close" type="button" class="p-2 rounded-full bg-bg-secondary border border-border hover:bg-bg-tertiary transition-colors focus:outline-none" aria-label="Close modal">
+        <XIcon class="w-5 h-5" />
+      </button>
+    </div>
+
+    <!-- Modal Body (scrollable images) -->
+    <div id="modal-images" class="flex-1 overflow-y-auto p-6 space-y-6">
+      <!-- Images inserted by JS -->
+    </div>
+  </div>
+</dialog>
+
+<script>
+  import { initGalleryModal } from '../../assets/js/galleryModal.js';
+  initGalleryModal();
+</script>

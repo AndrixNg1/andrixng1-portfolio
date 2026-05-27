@@ -8,31 +8,47 @@ const skillCategories = [
     title: 'Frontend',
     skills: [
       { name: 'React', icon: 'devicon-react-original colored' },
-      { name: 'Next.js', icon: 'devicon-nextjs-plain dark:text-white' },
-      { name: 'Astro', icon: 'devicon-astro-plain colored' },
-      { name: 'Tailwind CSS', icon: 'devicon-tailwindcss-original colored' },
-      { name: 'GSAP', icon: 'devicon-gsap-plain colored' },
-      { name: 'TypeScript', icon: 'devicon-typescript-plain colored' }
+      { name: 'Next.js', icon: 'devicon-nextjs-plain' },
+      { name: 'Vue.js', icon: 'devicon-vuejs-plain colored' },
+      { name: 'Nuxt.js', icon: 'devicon-nuxtjs-plain colored' },
+      { name: 'Astro', icon: 'devicon-astro-plain' },
+      { name: 'Expo', icon: 'devicon-react-original colored' },
+      { name: 'HTML', icon: 'devicon-html5-plain colored' },
+      { name: 'CSS', icon: 'devicon-css3-plain colored' },
+      { name: 'JavaScript', icon: 'devicon-javascript-plain colored' },
+      { name: 'TypeScript', icon: 'devicon-typescript-plain colored' },
+      { name: 'Tailwind', icon: 'devicon-tailwindcss-original colored' },
+      { name: 'Bootstrap', icon: 'devicon-bootstrap-plain colored' },
+      { name: 'GSAP', icon: 'devicon-gsap-plain' },
+      { name: 'Motion', icon: 'devicon-framermotion-original' },
     ]
   },
   {
     title: 'Backend',
     skills: [
-      { name: 'Node.js', icon: 'devicon-nodejs-plain-wordmark colored' },
-      { name: 'Express', icon: 'devicon-express-original dark:text-white' },
-      { name: 'Python', icon: 'devicon-python-plain colored' },
+      { name: 'Node.js', icon: 'devicon-nodejs-plain colored' },
+      { name: 'Express', icon: 'devicon-express-original' },
+      { name: 'NestJS', icon: 'devicon-nestjs-original colored' },
+      { name: 'Laravel', icon: 'devicon-laravel-original colored' },
+      { name: 'PHP', icon: 'devicon-php-plain colored' },
       { name: 'PostgreSQL', icon: 'devicon-postgresql-plain colored' },
-      { name: 'MongoDB', icon: 'devicon-mongodb-plain colored' }
+      { name: 'MongoDB', icon: 'devicon-mongodb-plain colored' },
+      { name: 'Redis', icon: 'devicon-redis-plain colored' },
+      { name: 'Prisma', icon: 'devicon-prisma-original' },
     ]
   },
   {
-    title: 'Tools & DevOps',
+    title: 'DevOps & Tools',
     skills: [
-      { name: 'Git', icon: 'devicon-git-plain colored' },
       { name: 'Docker', icon: 'devicon-docker-plain colored' },
+      { name: 'Git', icon: 'devicon-git-plain colored' },
+      { name: 'GitHub', icon: 'devicon-github-original' },
+      { name: 'AWS', icon: 'devicon-amazonwebservices-plain-wordmark colored' },
+      { name: 'Cloudflare', icon: 'devicon-cloudflare-plain colored' },
+      { name: 'Vercel', icon: 'devicon-vercel-original' },
+      { name: 'Render', icon: 'devicon-render-plain' },
       { name: 'Figma', icon: 'devicon-figma-plain colored' },
-      { name: 'Vercel', icon: 'devicon-vercel-original dark:text-white' },
-      { name: 'AWS', icon: 'devicon-amazonwebservices-plain-wordmark colored' }
+      { name: 'Canvas', icon: 'devicon-canva-original colored' },
     ]
   }
 ];
@@ -46,12 +62,12 @@ const skillCategories = [
   <div class="space-y-8">
     {skillCategories.map((category) => (
       <div>
-        <h3 class="text-lg font-semibold mb-4 text-text-secondary">{category.title}</h3>
-        <div class="flex flex-wrap gap-3">
+        <h3 class="text-sm font-semibold mb-3 text-text-muted uppercase tracking-wider">{category.title}</h3>
+        <div class="flex flex-wrap gap-2">
           {category.skills.map((skill) => (
-            <div class="group relative flex items-center gap-2 px-4 py-2 bg-bg-secondary border border-border rounded-lg hover:border-accent-green hover:bg-bg-tertiary transition-all duration-300">
-              <i class={`${skill.icon} text-xl group-hover:scale-110 transition-transform`}></i>
-              <span class="text-sm font-medium">{skill.name}</span>
+            <div class="group flex items-center gap-2 px-3 py-1.5 bg-bg-secondary border border-border rounded-lg hover:border-accent-green hover:bg-bg-tertiary transition-all duration-300 cursor-default">
+              <i class={`${skill.icon} text-lg group-hover:scale-110 transition-transform`}></i>
+              <span class="text-xs font-medium">{skill.name}</span>
             </div>
           ))}
         </div>
