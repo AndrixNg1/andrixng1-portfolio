@@ -3,9 +3,10 @@ import { Image as ImageIcon } from 'lucide-astro';
 import Card from '../ui/Card.astro';
 import SectionHeader from '../ui/SectionHeader.astro';
 
-const designs = await Astro.glob('../../data/designs/*.md');
+const markdownFiles = import.meta.glob<Record<string, any>>('../../data/designs/*.md', { eager: true });
+const designs = Object.values(markdownFiles);
 // Sort by order frontmatter
-designs.sort((a, b) => a.frontmatter.order - b.frontmatter.order);
+designs.sort((a: any, b: any) => a.frontmatter.order - b.frontmatter.order);
 ---
 
 <Card>
@@ -14,7 +15,7 @@ designs.sort((a, b) => a.frontmatter.order - b.frontmatter.order);
   </SectionHeader>
 
   <div class="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
-    {designs.map((design) => {
+    {designs.map((design: any) => {
       const slug = design.file.split('/').pop().replace('.md', '');
       return (
         <a
