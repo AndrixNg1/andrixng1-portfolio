@@ -13,14 +13,6 @@ export function initPageAnimations() {
     delay: 0.2
   });
 
-  gsap.from('nav', {
-    y: -30,
-    opacity: 0,
-    duration: 1,
-    ease: 'power3.out',
-    delay: 0.4
-  });
-
   // Staggered reveal for sections on scroll
   const sections = gsap.utils.toArray('#content-sections > section');
   
