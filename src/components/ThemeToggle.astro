@@ -4,16 +4,10 @@ import { Sun, Moon } from 'lucide-astro';
 
 <button
   id="theme-toggle"
-  class="relative p-2 rounded-full bg-bg-secondary border border-border text-text-secondary hover:text-accent-green transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-accent-green"
+  class="relative w-10 h-10 flex items-center justify-center rounded-xl bg-bg-secondary border border-border text-text-secondary hover:text-accent-orange hover:border-accent-orange transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent-orange group"
   aria-label="Toggle theme"
 >
   <span class="sr-only">Toggle theme</span>
-  <Sun class="w-5 h-5 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-300 dark:scale-0 dark:-rotate-90" />
-  <Moon class="w-5 h-5 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-300 scale-0 rotate-90 dark:scale-100 dark:rotate-0" />
+  <Sun class="w-5 h-5 absolute transition-transform duration-500 dark:scale-0 dark:-rotate-90 group-hover:scale-110" />
+  <Moon class="w-5 h-5 absolute transition-transform duration-500 scale-0 rotate-90 dark:scale-100 dark:rotate-0 group-hover:scale-110" />
 </button>
-
-<script>
-  import { initThemeToggle } from '../assets/js/themeToggle.js';
-  
-  initThemeToggle();
-</script>

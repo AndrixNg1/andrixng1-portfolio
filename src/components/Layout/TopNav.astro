@@ -1,5 +1,5 @@
 ---
-import { User, FolderGit2, Image as ImageIcon, Mail, FileText } from 'lucide-astro';
+import { User, FolderGit2, Image as ImageIcon, Mail, Download } from 'lucide-astro';
 import ThemeToggle from '../ThemeToggle.astro';
 
 const navItems = [
@@ -10,46 +10,45 @@ const navItems = [
 ];
 ---
 
-<nav class="sticky top-8 z-40 w-full bg-bg-primary/80 backdrop-blur-md border border-border rounded-2xl p-3 flex flex-wrap items-center justify-between shadow-[var(--card-shadow)] gap-4">
-  <ul class="flex items-center gap-1 sm:gap-2 flex-1 min-w-0 overflow-x-auto custom-scrollbar">
+<nav class="sticky top-8 z-40 w-full bg-bg-primary/70 backdrop-blur-xl border border-border/50 rounded-2xl p-2.5 flex flex-wrap items-center justify-between shadow-2xl shadow-black/5 gap-4 transition-all duration-500 hover:border-border/80 group/nav">
+  <ul class="flex items-center gap-1 sm:gap-2 flex-1 min-w-0 overflow-x-auto custom-scrollbar px-2">
     {navItems.map((item) => (
       <li>
         <a 
           href={item.href}
-          class="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium text-text-secondary hover:bg-bg-tertiary hover:text-text-primary transition-all duration-300"
+          class="relative flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-sm font-medium text-text-secondary hover:text-text-primary transition-colors duration-300 group overflow-hidden"
         >
-          <item.icon class="w-4 h-4" />
+          <span class="absolute inset-0 bg-bg-tertiary opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl -z-10"></span>
+          <item.icon class="w-4 h-4 group-hover:scale-110 group-active:scale-95 transition-transform duration-300" />
           <span class="hidden sm:inline">{item.name}</span>
         </a>
       </li>
     ))}
   </ul>
 
-  <div class="flex items-center gap-3 shrink-0 ml-auto">
+  <div class="flex items-center gap-3 shrink-0 ml-auto pr-1">
     <!-- Download CV Button -->
     <a 
       href="/cv.pdf" 
       download
-      class="flex items-center gap-2 px-4 py-2.5 bg-bg-secondary border border-border rounded-xl text-sm font-medium text-text-primary hover:border-accent-green hover:text-accent-green transition-all duration-300 group"
+      class="relative flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-accent-green/10 to-accent-orange/10 border border-accent-green/30 rounded-xl text-sm font-bold text-accent-green hover:border-accent-green hover:shadow-[0_0_15px_rgba(16,185,129,0.2)] hover:-translate-y-0.5 active:scale-95 transition-all duration-300 overflow-hidden group"
     >
-      <FileText class="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />
-      <span class="hidden sm:inline">Resume</span>
+      <!-- Shine effect -->
+      <div class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent group-hover:animate-shimmer"></div>
+      
+      <Download class="w-4 h-4 group-hover:animate-bounce-subtle" />
+      <span class="hidden sm:inline">Download CV</span>
     </a>
     
     <!-- Theme Toggle -->
-    <ThemeToggle />
+    <div class="active:scale-95 transition-transform duration-300">
+      <ThemeToggle />
+    </div>
   </div>
 </nav>
 
 <style>
   .custom-scrollbar::-webkit-scrollbar {
-    height: 4px;
-  }
-  .custom-scrollbar::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: var(--border);
-    border-radius: 4px;
+    height: 0px; /* Hidden for cleaner look, but still scrollable */
   }
 </style>
