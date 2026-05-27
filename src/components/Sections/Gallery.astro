@@ -3,43 +3,9 @@ import { Image as ImageIcon } from 'lucide-astro';
 import Card from '../ui/Card.astro';
 import SectionHeader from '../ui/SectionHeader.astro';
 
-export const galleryItems = [
-  { 
-    id: 'grk',
-    title: 'GRK Prosperity',
-    description: 'Premium SaaS landing page with dark mode, glassmorphism, and high-end visual aesthetics.',
-    thumbnail: '/images/gallery-project/grk.png',
-    images: ['/images/gallery-project/grk.png']
-  },
-  { 
-    id: 'tjal',
-    title: 'TJA Logistics',
-    description: 'Enterprise logistics platform with a clean UI, performance-focused design, and responsive layouts.',
-    thumbnail: '/images/gallery-project/tjal.png',
-    images: ['/images/gallery-project/tjal.png']
-  },
-  { 
-    id: 'figma1',
-    title: 'Figma Maquette – Desktop',
-    description: 'Desktop wireframe and mockup design created in Figma for a premium web application.',
-    thumbnail: '/images/gallery-project/figma-maquette1.png',
-    images: ['/images/gallery-project/figma-maquette1.png', '/images/gallery-project/figma-maquette2.png','/images/gallery-project/figma-maquette2.png','/images/gallery-project/figma-maquette2.png']
-  },
-  { 
-    id: 'figma-mobile',
-    title: 'Figma Maquette – Mobile',
-    description: 'Mobile-first mockup showcasing responsive design patterns for modern applications.',
-    thumbnail: '/images/gallery-project/figma-mobile-maquette1.png',
-    images: ['/images/gallery-project/figma-mobile-maquette1.png']
-  },
-  { 
-    id: 'figma2',
-    title: 'Figma Maquette – Variant',
-    description: 'Additional design variant exploring alternative layouts and color schemes.',
-    thumbnail: '/images/gallery-project/figma-maquette2.png',
-    images: ['/images/gallery-project/figma-maquette2.png', '/images/gallery-project/figma-maquette1.png']
-  }
-];
+const designs = await Astro.glob('../../data/designs/*.md');
+// Sort by order frontmatter
+designs.sort((a, b) => a.frontmatter.order - b.frontmatter.order);
 ---
 
 <Card>
@@ -48,24 +14,27 @@ export const galleryItems = [
   </SectionHeader>
 
   <div class="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
-    {galleryItems.map((item) => (
-      <a
-        href={`/design/${item.id}`}
-        class="group relative overflow-hidden rounded-2xl break-inside-avoid border border-border bg-bg-tertiary w-full block text-left focus:outline-none focus:ring-2 focus:ring-accent-green"
-      >
-        <img 
-          src={item.thumbnail} 
-          alt={item.title}
-          class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-          loading="lazy"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-          <div>
-            <h4 class="text-white font-bold text-sm">{item.title}</h4>
-            <p class="text-white/70 text-xs mt-1">View Details &rarr;</p>
+    {designs.map((design) => {
+      const slug = design.file.split('/').pop().replace('.md', '');
+      return (
+        <a
+          href={`/design/${slug}`}
+          class="group relative overflow-hidden rounded-2xl break-inside-avoid border border-border bg-bg-tertiary w-full block text-left focus:outline-none focus:ring-2 focus:ring-accent-green shadow-sm hover:shadow-2xl hover:shadow-accent-green/10 transition-all duration-500"
+        >
+          <img 
+            src={design.frontmatter.thumbnail} 
+            alt={design.frontmatter.title}
+            class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+            <div class="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+              <h4 class="text-white font-bold text-lg mb-1">{design.frontmatter.title}</h4>
+              <p class="text-accent-green text-sm font-medium">View Project &rarr;</p>
+            </div>
           </div>
-        </div>
-      </a>
-    ))}
+        </a>
+      );
+    })}
   </div>
 </Card>
