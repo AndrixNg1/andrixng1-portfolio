@@ -9,8 +9,8 @@ export function initPhotosModal() {
         const src = btn.getAttribute('data-photo-src');
         if (src) {
           lightboxImg.src = src;
-          // Use any for TS bypass, or just rely on DOM API
-          (modal as HTMLDialogElement).showModal();
+          // Use standard DOM API without TS assertions
+          modal.showModal();
           
           setTimeout(() => {
             lightboxImg.classList.remove('scale-95', 'opacity-0');
@@ -24,7 +24,7 @@ export function initPhotosModal() {
       lightboxImg.classList.remove('scale-100', 'opacity-100');
       lightboxImg.classList.add('scale-95', 'opacity-0');
       setTimeout(() => {
-        (modal as HTMLDialogElement).close();
+        modal.close();
         lightboxImg.src = '';
       }, 300);
     };
