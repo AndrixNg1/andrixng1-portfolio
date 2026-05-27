@@ -1,47 +1,42 @@
 ---
-import { User, Code2, Server, Smartphone, Database, Cloud, Zap, Layers, GitBranch, Cpu } from 'lucide-astro';
-
-const services = [
-  { title: "Fullstack product engineering", icon: Layers, color: "text-blue-500" },
-  { title: "Scalable backend architecture", icon: Server, color: "text-indigo-500" },
-  { title: "High-quality UI/UX implementation", icon: Code2, color: "text-purple-500" },
-  { title: "Web & mobile application dev", icon: Smartphone, color: "text-pink-500" },
-  { title: "REST API design & integration", icon: GitBranch, color: "text-blue-600" },
-  { title: "Database modeling & optimization", icon: Database, color: "text-teal-500" },
-  { title: "Cloud deployment & CI/CD", icon: Cloud, color: "text-cyan-500" },
-  { title: "Authentication & authorization", icon: Cpu, color: "text-green-500" },
-  { title: "Performance optimization", icon: Zap, color: "text-yellow-500" }
-];
+import { User, Code2, Server, Smartphone, Database, Cloud, Zap } from 'lucide-astro';
+import Card from '../ui/Card.astro';
+import SectionHeader from '../ui/SectionHeader.astro';
 ---
 
-<section id="about" class="bg-bg-primary border border-border rounded-3xl p-6 md:p-10 shadow-[var(--card-shadow)] relative overflow-hidden group">
-  <!-- Decorative background glow -->
-  <div class="absolute -top-24 -right-24 w-64 h-64 bg-accent-blue/5 rounded-full blur-3xl group-hover:bg-accent-purple/10 transition-colors duration-1000"></div>
+<Card>
+  <SectionHeader title="About Me">
+    <User slot="icon" class="w-5 h-5" />
+  </SectionHeader>
 
-  <div class="relative z-10">
-    <div class="flex items-center gap-3 mb-8">
-      <User class="w-6 h-6 text-accent-blue" />
-      <h2 class="text-2xl font-bold">About Me</h2>
+  <div class="flex flex-col gap-6 text-text-secondary leading-relaxed text-lg">
+    <p>
+      I'm <strong class="text-text-primary font-bold">Andrix Ngoyi</strong>, a passionate Software Engineer with a deep focus on crafting premium digital experiences. I specialize in building highly interactive, scalable, and beautifully designed web applications.
+    </p>
+    <p>
+      My approach bridges the gap between complex engineering and elegant design. By leveraging modern technologies like <span class="text-accent-green font-medium">Astro</span>, <span class="text-accent-green font-medium">Next.js</span>, and fluid animations via <span class="text-accent-orange font-medium">GSAP</span>, I transform concepts into award-winning digital products.
+    </p>
+    <p>
+      Whether it's architecting a robust backend or refining a glassmorphic user interface, my goal is always the same: <span class="text-text-primary italic">deliver exceptional quality that drives business success.</span>
+    </p>
+  </div>
+
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
+    <div class="flex flex-col gap-2 p-4 bg-bg-secondary rounded-2xl border border-border text-center">
+      <span class="text-3xl font-bold text-accent-green">3+</span>
+      <span class="text-sm font-medium text-text-muted">Years Experience</span>
     </div>
-
-    <p class="text-lg font-medium text-text-primary mb-4 leading-relaxed">
-      I build performant, scalable and user-centered digital products.
-    </p>
-    <p class="text-text-secondary mb-10 leading-relaxed max-w-3xl">
-      I work across the full software lifecycle: product thinking, architecture, frontend, backend, mobile, APIs, databases, cloud deployment, automation and continuous improvement.
-    </p>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {services.map((service) => (
-        <div class="flex items-center gap-4 p-4 rounded-2xl bg-bg-secondary/50 border border-border/50 hover:border-accent-blue/30 hover:bg-bg-secondary hover:shadow-lg transition-all duration-300 group/item cursor-default">
-          <div class={`p-3 rounded-xl bg-bg-primary shadow-sm group-hover/item:scale-110 transition-transform duration-300 ${service.color}`}>
-            <service.icon class="w-5 h-5" />
-          </div>
-          <span class="text-sm font-medium text-text-secondary group-hover/item:text-text-primary transition-colors">
-            {service.title}
-          </span>
-        </div>
-      ))}
+    <div class="flex flex-col gap-2 p-4 bg-bg-secondary rounded-2xl border border-border text-center">
+      <span class="text-3xl font-bold text-accent-orange">20+</span>
+      <span class="text-sm font-medium text-text-muted">Projects Completed</span>
+    </div>
+    <div class="flex flex-col gap-2 p-4 bg-bg-secondary rounded-2xl border border-border text-center">
+      <span class="text-3xl font-bold text-accent-green">15+</span>
+      <span class="text-sm font-medium text-text-muted">Happy Clients</span>
+    </div>
+    <div class="flex flex-col gap-2 p-4 bg-bg-secondary rounded-2xl border border-border text-center">
+      <span class="text-3xl font-bold text-accent-orange">24/7</span>
+      <span class="text-sm font-medium text-text-muted">Support</span>
     </div>
   </div>
-</section>
+</Card>

@@ -3,12 +3,12 @@ import ThemeToggle from '../ThemeToggle.astro';
 import { User, FolderGit2, Image as ImageIcon, CalendarDays, Settings2, Mail, Download } from 'lucide-astro';
 
 const navItems = [
-  { name: 'About', icon: User, href: '#about' },
-  { name: 'Projects', icon: FolderGit2, href: '#projects' },
-  { name: 'Gallery', icon: ImageIcon, href: '#gallery' },
-  { name: 'Events', icon: CalendarDays, href: '#events' },
-  { name: 'Services', icon: Settings2, href: '#services' },
-  { name: 'Contact', icon: Mail, href: '#contact' },
+  { name: 'About', icon: User, href: '/' },
+  { name: 'Projects', icon: FolderGit2, href: '/projects' },
+  { name: 'Gallery', icon: ImageIcon, href: '/gallery' },
+  { name: 'Events', icon: CalendarDays, href: '/events' },
+  { name: 'Services', icon: Settings2, href: '/services' },
+  { name: 'Contact', icon: Mail, href: '/contact' },
 ];
 ---
 
@@ -16,7 +16,7 @@ const navItems = [
   <ul class="flex items-center gap-2 md:gap-6 min-w-max">
     {navItems.map((item) => (
       <li>
-        <a href={item.href} class="flex items-center gap-2 text-sm font-medium text-text-secondary hover:text-accent-blue transition-colors px-2 py-1 rounded-lg hover:bg-bg-secondary">
+        <a href={item.href} class="flex items-center gap-2 text-sm font-medium text-text-secondary hover:text-accent-green transition-colors px-2 py-1 rounded-lg hover:bg-bg-secondary">
           <item.icon class="w-4 h-4" />
           <span class="hidden sm:inline">{item.name}</span>
         </a>
@@ -26,7 +26,7 @@ const navItems = [
 
   <div class="flex items-center gap-4 shrink-0">
     <ThemeToggle />
-    <button class="flex items-center gap-2 bg-accent-blue hover:bg-accent-hover text-white px-4 py-2 rounded-xl text-sm font-medium transition-colors shadow-lg shadow-accent-blue/20">
+    <button class="flex items-center gap-2 bg-accent-green hover:bg-accent-orange text-white px-4 py-2 rounded-xl text-sm font-medium transition-colors shadow-lg shadow-accent-green/20">
       <Download class="w-4 h-4" />
       <span class="hidden sm:inline">Download CV</span>
     </button>

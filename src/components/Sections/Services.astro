@@ -1,35 +1,54 @@
 ---
 import { Settings2, MonitorSmartphone, ServerCog, Cpu, CloudCog, Palette, ShieldCheck } from 'lucide-astro';
+import Card from '../ui/Card.astro';
+import SectionHeader from '../ui/SectionHeader.astro';
 
 const services = [
-  { title: "Web Development", icon: MonitorSmartphone, desc: "Building responsive, performant, and accessible web applications." },
-  { title: "Mobile Development", icon: MonitorSmartphone, desc: "Creating cross-platform mobile experiences with React Native & Flutter." },
-  { title: "Backend Architecture", icon: ServerCog, desc: "Designing scalable and secure backend systems and databases." },
-  { title: "API Engineering", icon: Cpu, desc: "Developing robust REST and GraphQL APIs for seamless integration." },
-  { title: "SaaS Development", icon: CloudCog, desc: "End-to-end development of modern SaaS platforms." },
-  { title: "UI/UX Integration", icon: Palette, desc: "Translating complex designs into pixel-perfect frontend code." },
-  { title: "DevOps & Cloud", icon: ShieldCheck, desc: "Automating deployments and managing cloud infrastructure." }
+  {
+    title: 'Frontend Development',
+    description: 'Building high-performance, accessible, and cinematic user interfaces using modern frameworks like React, Next.js, and Astro.',
+    icon: MonitorSmartphone,
+    color: 'text-accent-green',
+    bg: 'bg-accent-green/10'
+  },
+  {
+    title: 'Backend Engineering',
+    description: 'Architecting robust, scalable, and secure server-side applications and APIs with Node.js, Python, and Go.',
+    icon: ServerCog,
+    color: 'text-accent-orange',
+    bg: 'bg-accent-orange/10'
+  },
+  {
+    title: 'Cloud Architecture',
+    description: 'Designing and deploying resilient infrastructure on AWS and GCP with modern DevOps practices and Docker.',
+    icon: CloudCog,
+    color: 'text-blue-500',
+    bg: 'bg-blue-500/10'
+  },
+  {
+    title: 'UI/UX & Motion Design',
+    description: 'Crafting premium digital experiences with fluid GSAP animations, glassmorphism, and intuitive interactions.',
+    icon: Palette,
+    color: 'text-purple-500',
+    bg: 'bg-purple-500/10'
+  }
 ];
 ---
 
-<section id="services" class="bg-bg-primary border border-border rounded-3xl p-6 md:p-10 shadow-[var(--card-shadow)] relative">
-  <div class="flex items-center gap-3 mb-8">
-    <Settings2 class="w-6 h-6 text-accent-blue" />
-    <h2 class="text-2xl font-bold">Services</h2>
-  </div>
+<Card>
+  <SectionHeader title="My Services">
+    <Settings2 slot="icon" class="w-5 h-5" />
+  </SectionHeader>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     {services.map((service) => (
-      <div class="group p-6 rounded-2xl bg-bg-secondary border border-border hover:border-accent-blue/50 transition-all duration-300 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-accent-blue/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-        <div class="relative z-10">
-          <div class="w-12 h-12 rounded-xl bg-bg-primary border border-border flex items-center justify-center text-accent-blue mb-4 group-hover:scale-110 group-hover:bg-accent-blue/10 transition-transform duration-300">
-            <service.icon class="w-6 h-6" />
-          </div>
-          <h3 class="text-lg font-bold mb-2">{service.title}</h3>
-          <p class="text-sm text-text-secondary leading-relaxed">{service.desc}</p>
+      <div class="p-6 bg-bg-secondary border border-border rounded-2xl hover:border-accent-green hover:bg-bg-tertiary transition-all duration-300 group">
+        <div class={`w-12 h-12 rounded-xl ${service.bg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+          <service.icon class={`w-6 h-6 ${service.color}`} />
         </div>
+        <h3 class="text-xl font-bold mb-3">{service.title}</h3>
+        <p class="text-text-secondary leading-relaxed">{service.description}</p>
       </div>
     ))}
   </div>
-</section>
+</Card>

@@ -4,7 +4,7 @@ import { Sun, Moon } from 'lucide-astro';
 
 <button
   id="theme-toggle"
-  class="relative p-2 rounded-full bg-bg-secondary border border-border text-text-secondary hover:text-accent-blue transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-accent-blue"
+  class="relative p-2 rounded-full bg-bg-secondary border border-border text-text-secondary hover:text-accent-green transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-accent-green"
   aria-label="Toggle theme"
 >
   <span class="sr-only">Toggle theme</span>
@@ -13,24 +13,7 @@ import { Sun, Moon } from 'lucide-astro';
 </button>
 
 <script>
-  import { gsap } from 'gsap';
-
-  const themeToggle = document.getElementById('theme-toggle');
+  import { initThemeToggle } from '../assets/js/themeToggle.js';
   
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      const isDark = document.documentElement.classList.contains('dark');
-      
-      // Animate rotation of the button slightly for a premium feel
-      gsap.fromTo(themeToggle, { rotation: isDark ? 0 : 45 }, { rotation: isDark ? -45 : 0, duration: 0.5, ease: 'back.out(1.5)' });
-
-      if (isDark) {
-        document.documentElement.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-      } else {
-        document.documentElement.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-      }
-    });
-  }
+  initThemeToggle();
 </script>

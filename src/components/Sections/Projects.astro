@@ -1,126 +1,72 @@
 ---
-import { FolderGit2, Github, ExternalLink, PenTool, LayoutDashboard, Smartphone } from 'lucide-astro';
+import { FolderGit2, Github, ExternalLink } from 'lucide-astro';
+import Card from '../ui/Card.astro';
+import SectionHeader from '../ui/SectionHeader.astro';
 
 const projects = [
   {
-    title: "Personal Portfolio",
-    description: "A futuristic interactive developer portfolio with GSAP animations, built with Astro and Tailwind CSS. Features a smooth cinematic experience.",
-    tech: ["Astro", "TailwindCSS", "GSAP", "Lenis", "TypeScript"],
-    github: "#",
-    live: "#",
-    gradient: "from-blue-500/20 to-purple-500/20",
-    border: "group-hover:border-blue-500/50"
+    title: 'GRK Prosperity',
+    description: 'Premium SaaS landing page with dark mode, animations, and high-end aesthetics.',
+    image: '/images/gallery-project/grk.png',
+    tags: ['Astro', 'Tailwind', 'GSAP'],
+    links: { github: '#', live: 'https://www.grkprosperity.net/' }
   },
   {
-    title: "AOI-Mail",
-    description: "A modern PHP-based mailing platform for managing communication workflows, featuring an intuitive dashboard and secure API integration.",
-    tech: ["PHP", "MySQL", "API", "TailwindCSS"],
-    github: "#",
-    live: "#",
-    gradient: "from-indigo-500/20 to-blue-500/20",
-    border: "group-hover:border-indigo-500/50"
+    title: 'TJA Logistics',
+    description: 'Enterprise logistics platform focusing on performance and professional UI.',
+    image: '/images/gallery-project/tjal.png',
+    tags: ['Next.js', 'React', 'Framer Motion'],
+    links: { github: '#', live: 'https://www.tja-logistics.com/' }
   },
   {
-    title: "Loopback-Load-Tester",
-    description: "A localhost-only load testing tool used to generate bounded high-volume GET traffic for API benchmarking, analyzing latency and throughput.",
-    tech: ["Node.js", "Backend", "Performance Testing", "CLI"],
-    github: "#",
-    live: "",
-    gradient: "from-green-500/20 to-teal-500/20",
-    border: "group-hover:border-green-500/50"
-  },
-  {
-    title: "SmartCity Lite",
-    description: "A smart city platform currently in development focused on digital city management, smart services, urban monitoring, and connected systems.",
-    tech: ["Next.js", "TypeScript", "Node.js", "PostgreSQL"],
-    github: "#",
-    live: "#",
-    gradient: "from-orange-500/20 to-red-500/20",
-    border: "group-hover:border-orange-500/50"
+    title: 'Ahmed Portfolio',
+    description: 'Creative developer portfolio with immersive 3D scrolling effects.',
+    image: '/images/gallery-project/figma-maquette1.png',
+    tags: ['Three.js', 'WebGL', 'GSAP'],
+    links: { github: '#', live: 'https://ahmedabdalalim.pages.dev/home' }
   }
-];
-
-const figmaProjects = [
-  { title: "Mobile App Mockup", icon: Smartphone },
-  { title: "Portfolio Design", icon: PenTool },
-  { title: "SmartCity Dashboard", icon: LayoutDashboard }
 ];
 ---
 
-<section id="projects" class="bg-bg-primary border border-border rounded-3xl p-6 md:p-10 shadow-[var(--card-shadow)] relative">
-  <div class="flex items-center gap-3 mb-8">
-    <FolderGit2 class="w-6 h-6 text-accent-blue" />
-    <h2 class="text-2xl font-bold">Featured Projects</h2>
-  </div>
+<Card>
+  <SectionHeader title="Featured Projects">
+    <FolderGit2 slot="icon" class="w-5 h-5" />
+  </SectionHeader>
 
-  <div class="flex flex-col gap-8">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     {projects.map((project) => (
-      <div class={`group relative overflow-hidden rounded-2xl bg-bg-secondary border border-border transition-colors duration-500 ${project.border}`}>
-        <!-- Premium background glow on hover -->
-        <div class={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+      <div class="group bg-bg-secondary border border-border rounded-2xl overflow-hidden hover:border-accent-orange transition-all duration-300">
+        <div class="relative h-48 md:h-56 overflow-hidden bg-bg-tertiary">
+          <div class="absolute inset-0 bg-accent-orange/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+          <img 
+            src={project.image} 
+            alt={project.title}
+            class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+          />
+        </div>
         
-        <div class="relative z-10 p-6 md:p-8 flex flex-col md:flex-row gap-8">
-          <!-- Image Placeholder -->
-          <div class="w-full md:w-1/3 aspect-video md:aspect-square lg:aspect-video bg-bg-tertiary rounded-xl border border-border/50 flex items-center justify-center overflow-hidden relative">
-            <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiM2YjcyODAiIGZpbGwtb3BhY2l0eT0iMC4yIi8+PC9zdmc+')] opacity-50"></div>
-            <FolderGit2 class="w-12 h-12 text-text-muted group-hover:scale-110 group-hover:text-accent-blue transition-all duration-500" />
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2 group-hover:text-accent-orange transition-colors">{project.title}</h3>
+          <p class="text-text-secondary text-sm mb-4 line-clamp-2">{project.description}</p>
+          
+          <div class="flex flex-wrap gap-2 mb-6">
+            {project.tags.map((tag) => (
+              <span class="px-2 py-1 bg-bg-tertiary border border-border rounded-md text-xs font-medium text-text-secondary">
+                {tag}
+              </span>
+            ))}
           </div>
-
-          <!-- Content -->
-          <div class="w-full md:w-2/3 flex flex-col justify-between">
-            <div>
-              <h3 class="text-xl font-bold mb-3 group-hover:text-accent-blue transition-colors">{project.title}</h3>
-              <p class="text-text-secondary leading-relaxed mb-6">{project.description}</p>
-            </div>
-            
-            <div>
-              <div class="flex flex-wrap gap-2 mb-6">
-                {project.tech.map((t) => (
-                  <span class="px-3 py-1 text-xs font-medium bg-bg-primary border border-border rounded-full text-text-secondary">
-                    {t}
-                  </span>
-                ))}
-              </div>
-
-              <div class="flex gap-4">
-                {project.github && (
-                  <a href={project.github} class="flex items-center gap-2 text-sm font-medium hover:text-accent-blue transition-colors">
-                    <Github class="w-4 h-4" /> Code
-                  </a>
-                )}
-                {project.live && (
-                  <a href={project.live} class="flex items-center gap-2 text-sm font-medium hover:text-accent-purple transition-colors">
-                    <ExternalLink class="w-4 h-4" /> Live Demo
-                  </a>
-                )}
-              </div>
-            </div>
+          
+          <div class="flex items-center gap-4">
+            <a href={project.links.live} target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-sm font-medium text-accent-green hover:text-accent-orange transition-colors">
+              <ExternalLink class="w-4 h-4" /> Live Demo
+            </a>
+            <a href={project.links.github} target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-sm font-medium text-text-secondary hover:text-text-primary transition-colors">
+              <Github class="w-4 h-4" /> Source
+            </a>
           </div>
         </div>
       </div>
     ))}
   </div>
-
-  <!-- Figma UI/UX Designs Section -->
-  <div class="mt-12 pt-12 border-t border-border">
-    <div class="flex items-center gap-3 mb-8">
-      <PenTool class="w-6 h-6 text-pink-500" />
-      <h2 class="text-2xl font-bold">Figma UI/UX Designs</h2>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {figmaProjects.map((figma) => (
-        <div class="group relative rounded-2xl bg-bg-secondary border border-border p-6 hover:border-pink-500/50 transition-colors duration-300 overflow-hidden cursor-pointer">
-          <div class="absolute inset-0 bg-gradient-to-br from-pink-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          <div class="relative z-10 flex flex-col items-center text-center gap-4">
-            <div class="w-16 h-16 rounded-full bg-bg-primary border border-border flex items-center justify-center text-pink-500 group-hover:scale-110 group-hover:bg-pink-500/10 transition-all duration-300">
-              <figma.icon class="w-8 h-8" />
-            </div>
-            <h3 class="font-bold">{figma.title}</h3>
-            <span class="text-sm text-accent-blue opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">View Case Study &rarr;</span>
-          </div>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
+</Card>

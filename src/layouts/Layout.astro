@@ -23,6 +23,9 @@ const { title } = Astro.props;
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
+		<!-- Devicon for Skills Logos -->
+		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
 		<!-- Prevent FOUC for theme -->
 		<script is:inline>
 			const theme = (() => {
@@ -47,38 +50,10 @@ const { title } = Astro.props;
 		<slot />
 
 		<script>
-			import Lenis from 'lenis';
-			import { gsap } from 'gsap';
-			import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-			gsap.registerPlugin(ScrollTrigger);
-
-			// Initialize Lenis
-			const lenis = new Lenis({
-				duration: 1.2,
-				easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-				orientation: 'vertical',
-				gestureOrientation: 'vertical',
-				smoothWheel: true,
-				wheelMultiplier: 1,
-				touchMultiplier: 2,
-			});
-
-			function raf(time: number) {
-				lenis.raf(time);
-				requestAnimationFrame(raf);
-			}
-
-			requestAnimationFrame(raf);
-
-			// Sync GSAP ScrollTrigger with Lenis
-			lenis.on('scroll', ScrollTrigger.update);
-
-			gsap.ticker.add((time) => {
-				lenis.raf(time * 1000);
-			});
-
-			gsap.ticker.lagSmoothing(0);
+			import { initLenis } from '../assets/js/lenisSetup.js';
+			
+			// Initialize global lenis scrolling
+			initLenis();
 		</script>
 	</body>
 </html>

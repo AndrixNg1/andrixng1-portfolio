@@ -1,26 +1,34 @@
 ---
 import { Camera } from 'lucide-astro';
+import Card from '../ui/Card.astro';
+import SectionHeader from '../ui/SectionHeader.astro';
 
 const photos = [
-  { id: 1, span: "md:col-span-2", height: "h-64" },
-  { id: 2, span: "md:col-span-1", height: "h-64" },
-  { id: 3, span: "md:col-span-1", height: "h-64" },
-  { id: 4, span: "md:col-span-2", height: "h-64" }
+  { image: '/images/me/37f9555d-78a2-4aac-8f4a-586f32fa0043.jpeg' },
+  { image: '/images/me/ac37a55f-8cd8-4251-921e-921bfa482c19.jpeg' },
+  { image: '/images/me/c53e2c93-c40c-47cd-9f95-aa2b90ced2ed.jpeg' },
+  { image: '/images/me/c81bae9a-f4ae-49ba-9e00-3033d71e9082.jpeg' },
+  { image: '/images/even/img2.jpg' },
+  { image: '/images/even/img3.jpg' }
 ];
 ---
 
-<section id="photos" class="bg-bg-primary border border-border rounded-3xl p-6 md:p-10 shadow-[var(--card-shadow)] relative">
-  <div class="flex items-center gap-3 mb-8">
-    <Camera class="w-6 h-6 text-pink-500" />
-    <h2 class="text-2xl font-bold">Personal Photos</h2>
-  </div>
+<Card>
+  <SectionHeader title="Life & Setup">
+    <Camera slot="icon" class="w-5 h-5" />
+  </SectionHeader>
 
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
     {photos.map((photo) => (
-      <div class={`group relative overflow-hidden rounded-2xl bg-bg-tertiary border border-border cursor-pointer ${photo.span} ${photo.height}`}>
-        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiM2YjcyODAiIGZpbGwtb3BhY2l0eT0iMC4yIi8+PC9zdmc+')] opacity-30 mix-blend-overlay group-hover:scale-105 transition-transform duration-700"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      <div class="group relative aspect-square overflow-hidden rounded-2xl border border-border bg-bg-tertiary">
+        <img 
+          src={photo.image} 
+          alt="Personal Photo"
+          class="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-2 transition-all duration-700 ease-out"
+          loading="lazy"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-bg-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
       </div>
     ))}
   </div>
-</section>
+</Card>

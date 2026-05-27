@@ -1,7 +1,5 @@
 ---
-import { MapPin, Mail, Link as LinkIcon, Linkedin, Github, Twitter, Instagram, MapPinHouse, Award, Briefcase, GraduationCap } from 'lucide-astro';
-
-// We'll use lucide-astro for simple icons
+import { MapPin, Mail, Link as LinkIcon, Linkedin, Github, Twitter, Instagram, Award, Briefcase, GraduationCap } from 'lucide-astro';
 ---
 
 <aside class="w-full lg:w-[320px] shrink-0 lg:sticky lg:top-8 h-auto lg:h-[calc(100vh-4rem)] bg-bg-primary border border-border rounded-3xl p-6 shadow-[var(--card-shadow)] flex flex-col gap-6 z-10 overflow-y-auto custom-scrollbar">
@@ -9,12 +7,12 @@ import { MapPin, Mail, Link as LinkIcon, Linkedin, Github, Twitter, Instagram, M
   <div class="flex flex-col items-center text-center">
     <div class="relative w-32 h-32 mb-4 group cursor-pointer">
       <!-- Glow effect behind image -->
-      <div class="absolute inset-0 bg-accent-blue/20 rounded-full blur-xl group-hover:bg-accent-purple/40 transition-colors duration-500"></div>
+      <div class="absolute inset-0 bg-accent-green/20 rounded-full blur-xl group-hover:bg-accent-orange/40 transition-colors duration-500"></div>
       
-      <!-- Profile Image (placeholder) -->
+      <!-- Profile Image -->
       <div class="relative w-full h-full rounded-full border-4 border-bg-primary overflow-hidden bg-bg-tertiary">
         <img 
-          src="https://ui-avatars.com/api/?name=Andrix+Ng1&background=3b82f6&color=fff&size=256" 
+          src="/images/me/home.jpeg" 
           alt="AndrixNg1" 
           class="w-full h-full object-cover"
         />
@@ -25,17 +23,17 @@ import { MapPin, Mail, Link as LinkIcon, Linkedin, Github, Twitter, Instagram, M
     
     <h1 class="text-2xl font-bold flex items-center gap-2">
       AndrixNg1 
-      <svg class="w-5 h-5 text-accent-blue" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"/></svg>
+      <svg class="w-5 h-5 text-accent-green" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"/></svg>
     </h1>
     <p class="text-text-secondary font-medium mt-1">Software Engineer</p>
     <p class="text-sm text-text-muted mt-2">Crafting elegant scalable digital solutions with impact.</p>
     
-    <button class="w-full mt-6 py-2.5 bg-accent-blue hover:bg-accent-hover text-white rounded-xl font-medium transition-colors shadow-lg shadow-accent-blue/20 group relative overflow-hidden">
+    <a href="/contact" class="w-full mt-6 py-2.5 bg-accent-green hover:bg-accent-orange text-white rounded-xl font-medium transition-colors shadow-lg shadow-accent-green/20 group relative overflow-hidden flex items-center justify-center gap-2">
       <span class="relative z-10 flex items-center justify-center gap-2">
-        <Mail class="w-4 h-4" /> Edit Profile
+        <Mail class="w-4 h-4" /> Contact Me
       </span>
       <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out"></div>
-    </button>
+    </a>
   </div>
 
   <div class="h-px bg-border w-full"></div>
@@ -56,15 +54,15 @@ import { MapPin, Mail, Link as LinkIcon, Linkedin, Github, Twitter, Instagram, M
 
   <!-- Contact / Links -->
   <ul class="flex flex-col gap-4 text-sm">
-    <li class="flex items-center gap-3 text-text-secondary hover:text-accent-blue transition-colors">
+    <li class="flex items-center gap-3 text-text-secondary hover:text-accent-green transition-colors">
       <MapPin class="w-4 h-4" />
       <span>DR Congo, Lubumbashi</span>
     </li>
-    <li class="flex items-center gap-3 text-text-secondary hover:text-accent-blue transition-colors">
+    <li class="flex items-center gap-3 text-text-secondary hover:text-accent-green transition-colors">
       <Mail class="w-4 h-4" />
       <a href="mailto:andrixngoyi243@gmail.com" class="truncate">andrixngoyi243@gmail.com</a>
     </li>
-    <li class="flex items-center gap-3 text-text-secondary hover:text-accent-blue transition-colors">
+    <li class="flex items-center gap-3 text-text-secondary hover:text-accent-green transition-colors">
       <LinkIcon class="w-4 h-4" />
       <a href="https://andrixngoyi.vercel.app/" target="_blank" rel="noopener noreferrer" class="truncate">andrixngoyi.vercel.app</a>
     </li>
@@ -72,7 +70,7 @@ import { MapPin, Mail, Link as LinkIcon, Linkedin, Github, Twitter, Instagram, M
 
   <!-- Socials -->
   <div class="flex flex-col gap-3 text-sm mt-2">
-    <a href="#" class="flex items-center gap-3 text-text-secondary hover:text-accent-blue transition-colors">
+    <a href="#" class="flex items-center gap-3 text-text-secondary hover:text-accent-green transition-colors">
       <Linkedin class="w-4 h-4" />
       <span>in/andrix-ngoyi</span>
     </a>
@@ -92,11 +90,10 @@ import { MapPin, Mail, Link as LinkIcon, Linkedin, Github, Twitter, Instagram, M
   <div>
     <h3 class="text-sm font-semibold mb-3">Achievements</h3>
     <div class="flex gap-2">
-      <!-- Dummy achievements badges -->
-      <div class="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 flex items-center justify-center text-blue-600 cursor-pointer hover:scale-110 transition-transform">
+      <div class="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 border border-green-200 dark:border-green-800 flex items-center justify-center text-green-600 cursor-pointer hover:scale-110 transition-transform">
         <Award class="w-5 h-5" />
       </div>
-      <div class="w-10 h-10 rounded-full bg-yellow-100 dark:bg-yellow-900/30 border border-yellow-200 dark:border-yellow-800 flex items-center justify-center text-yellow-600 cursor-pointer hover:scale-110 transition-transform">
+      <div class="w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-900/30 border border-orange-200 dark:border-orange-800 flex items-center justify-center text-orange-600 cursor-pointer hover:scale-110 transition-transform">
         <Briefcase class="w-5 h-5" />
       </div>
       <div class="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900/30 border border-purple-200 dark:border-purple-800 flex items-center justify-center text-purple-600 cursor-pointer hover:scale-110 transition-transform">

@@ -7,8 +7,8 @@
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
   --color-text-muted: var(--text-muted);
-  --color-accent-blue: var(--accent-blue);
-  --color-accent-purple: var(--accent-purple);
+  --color-accent-green: var(--accent-green);
+  --color-accent-orange: var(--accent-orange);
   --color-border: var(--border);
   --color-card-shadow: var(--card-shadow);
   
@@ -23,8 +23,8 @@
     --text-primary: #111827;
     --text-secondary: #4b5563;
     --text-muted: #9ca3af;
-    --accent-blue: #3b82f6;
-    --accent-purple: #8b5cf6;
+    --accent-green: #10b981;
+    --accent-orange: #f97316;
     --border: #e5e7eb;
     --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
@@ -36,8 +36,8 @@
     --text-primary: #f9fafb;
     --text-secondary: #d1d5db;
     --text-muted: #6b7280;
-    --accent-blue: #60a5fa;
-    --accent-purple: #a78bfa;
+    --accent-green: #34d399;
+    --accent-orange: #fb923c;
     --border: #262626;
     --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
   }

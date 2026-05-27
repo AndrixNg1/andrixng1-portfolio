@@ -2,17 +2,16 @@
 import { Heart } from 'lucide-astro';
 ---
 
-<footer class="mt-8 border-t border-border pt-8 pb-4 flex flex-col md:flex-row items-center justify-between gap-4">
+<footer class="w-full py-8 border-t border-border mt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-text-muted">
   <div class="flex items-center gap-2">
-    <span class="text-xl font-bold">AndrixNg1</span>
-    <span class="w-1.5 h-1.5 rounded-full bg-accent-blue"></span>
+    <span>© {new Date().getFullYear()} Andrix Ngoyi. All rights reserved.</span>
+    <span class="w-1.5 h-1.5 rounded-full bg-accent-green"></span>
+    <span class="hidden sm:inline">Built with Astro & Tailwind</span>
   </div>
   
-  <p class="text-sm text-text-secondary flex items-center gap-1">
-    Crafted with <Heart class="w-4 h-4 text-pink-500 inline" /> and Astro
-  </p>
-
-  <p class="text-sm text-text-muted">
-    &copy; {new Date().getFullYear()} All Rights Reserved.
-  </p>
+  <div class="flex items-center gap-2">
+    <span>Crafted with</span>
+    <Heart class="w-4 h-4 text-accent-orange fill-current animate-pulse" />
+    <span>in DRC</span>
+  </div>
 </footer>
