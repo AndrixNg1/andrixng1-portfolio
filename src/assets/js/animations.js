@@ -24,10 +24,11 @@ export function initPageAnimations() {
           start: 'top 85%',
           toggleActions: 'play none none reverse'
         },
-        y: 50,
+        y: 60,
         opacity: 0,
-        duration: 0.8,
-        ease: 'power3.out'
+        duration: 1.2,
+        ease: 'expo.out',
+        clearProps: 'all'
       });
     });
   }
