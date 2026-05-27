@@ -4,14 +4,21 @@ import Card from '../ui/Card.astro';
 import SectionHeader from '../ui/SectionHeader.astro';
 
 const projects = [
-  {
-    title: 'GRK Prosperity',
-    description: 'Premium SaaS landing page with dark mode, animations, and high-end aesthetics for a business consulting firm.',
-    image: '/images/gallery-project/grk.png',
-    tags: ['Astro', 'Tailwind', 'GSAP'],
-    links: { github: '', live: 'https://www.grkprosperity.net/' }
+    {
+    title: 'AndrixNg1 Portfolio',
+    description: 'My personal developer portfolio — a premium, high-performance showcase engineered with Astro, advanced GSAP animations, and Lenis smooth scrolling.',
+    image: '/images/gallery-project/image.png',
+    tags: ['Astro', 'GSAP', 'Tailwind'],
+    links: { github: 'https://github.com/AndrixNg1/andrixng1-portfolio', live: '#' }
   },
-  {
+    {
+    title: 'Loopback Load Tester',
+    description: 'A small localhost-only load testing tool. It sends bounded high-volume GET traffic to another API already running on the same machine so you can observe latency, throughput, and error rates under pressure.',
+    image: '/images/gallery-project/3.jpg',
+    tags: ['Node.js', 'CLI', 'Performance'],
+    links: { github: 'https://github.com/AndrixNg1/Loopback-Load-Tester', live: '' }
+  },
+    {
     title: 'TJA Logistics',
     description: 'Enterprise logistics platform focusing on performance and professional UI for a transport company.',
     image: '/images/gallery-project/tjal.png',
@@ -19,26 +26,20 @@ const projects = [
     links: { github: '', live: 'https://www.tja-logistics.com/' }
   },
   {
-    title: 'Loopback Load Tester',
-    description: 'A small localhost-only load testing tool. It sends bounded high-volume GET traffic to another API already running on the same machine so you can observe latency, throughput, and error rates under pressure.',
-    image: '/images/gallery-project/figma-maquette1.png',
-    tags: ['Node.js', 'CLI', 'Performance'],
-    links: { github: 'https://github.com/AndrixNg1/Loopback-Load-Tester', live: '' }
+    title: 'GRK Prosperity',
+    description: 'Accounting, audit, and strategic consulting firm based in DRC. A premium showcase platform featuring dark mode, GSAP animations, and high-end aesthetics.',
+    image: '/images/gallery-project/grk.png',
+    tags: ['Astro', 'Tailwind', 'GSAP'],
+    links: { github: '', live: 'https://www.grkprosperity.net/' }
   },
   {
     title: 'API Mail',
     description: 'A lightweight API service for sending transactional emails programmatically with simple integration.',
-    image: '/images/gallery-project/figma-maquette2.png',
+    image: '/images/gallery-project/2.jpg',
     tags: ['Node.js', 'Express', 'Email'],
     links: { github: 'https://github.com/AndrixNg1/api-mail', live: '' }
   },
-  {
-    title: 'AndrixNg1 Portfolio',
-    description: 'This very portfolio — a premium, multi-page developer showcase built with Astro, GSAP animations, and Lenis smooth scrolling.',
-    image: '/images/gallery-project/figma-mobile-maquette1.png',
-    tags: ['Astro', 'GSAP', 'Tailwind'],
-    links: { github: 'https://github.com/AndrixNg1/andrixng1-portfolio', live: '#' }
-  }
+
 ];
 ---
 
@@ -87,5 +88,18 @@ const projects = [
         </div>
       </div>
     ))}
+  </div>
+
+  <div class="mt-12 flex justify-center">
+    <a 
+      href="https://github.com/AndrixNg1" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="group relative inline-flex items-center gap-2 px-8 py-4 bg-bg-secondary border border-border rounded-full overflow-hidden hover:border-accent-orange transition-all duration-300"
+    >
+      <div class="absolute inset-0 bg-accent-orange/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></div>
+      <span class="relative text-text-primary font-medium group-hover:text-accent-orange transition-colors">See more on GitHub</span>
+      <Github class="relative w-5 h-5 text-text-primary group-hover:text-accent-orange transition-colors" />
+    </a>
   </div>
 </Card>
