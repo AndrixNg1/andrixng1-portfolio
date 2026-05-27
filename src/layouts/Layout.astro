@@ -7,9 +7,17 @@ import '../assets/styles/app.css';
 
 interface Props {
 	title: string;
+	description?: string;
+	image?: string;
+	url?: string;
 }
 
-const { title } = Astro.props;
+const { 
+	title,
+	description = "Fullstack Software Engineer specializing in scalable backend systems, modern frontend development, SaaS platforms, API engineering, DevOps and immersive digital experiences. Explore projects, UI/UX designs, SmartCity Lite, AOI-Mail and more.",
+	image = "/images/me/and1.jpg",
+	url = "https://andrixng1.com"
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -22,22 +30,22 @@ const { title } = Astro.props;
 		
 		<!-- SEO -->
 		<title>{title}</title>
-		<meta name="description" content="Fullstack Software Engineer specializing in scalable backend systems, modern frontend development, SaaS platforms, API engineering, DevOps and immersive digital experiences. Explore projects, UI/UX designs, SmartCity Lite, AOI-Mail and more." />
+		<meta name="description" content={description} />
 		<meta name="keywords" content="AndrixNg1, Fullstack Developer, Software Engineer, Backend Developer, Frontend Developer, Laravel Developer, PHP Developer, Astro Developer, GSAP Portfolio, DevOps Engineer, API Engineer, Modern Web Developer, SaaS Developer, SmartCity Lite, Portfolio Developer, UI UX Designer, JavaScript Developer, TypeScript Developer, Node.js Developer, React Developer, Flutter Developer, Cloud Engineer, Performance Optimization, Web Application Developer, Mobile Application Developer, Tech Portfolio" />
 		<meta name="author" content="AndrixNg1" />
 		
 		<!-- Open Graph -->
-		<meta property="og:title" content="AndrixNg1 — Fullstack Software Engineer & SaaS Builder" />
-		<meta property="og:description" content="Building scalable backend systems, immersive frontend experiences and modern SaaS platforms with Astro, GSAP, Laravel, Node.js and modern web technologies." />
-		<meta property="og:image" content="/images/logo/andrix-ng.png" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={image} />
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://andrixng1.com" />
+		<meta property="og:url" content={url} />
 		
 		<!-- Twitter / X -->
 		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content="AndrixNg1 — Fullstack Software Engineer & SaaS Builder" />
-		<meta name="twitter:description" content="Creative Fullstack Engineer crafting scalable digital products, modern interfaces and immersive web experiences." />
-		<meta name="twitter:image" content="/images/logo/andrix-ng.png" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={image} />
 
 		<!-- JSON-LD -->
 		<script type="application/ld+json">

@@ -25,7 +25,11 @@ const { design } = Astro.props;
 const { Content, frontmatter } = design;
 ---
 
-<Layout title={`${frontmatter.title} | Gallery | AndrixNg1`}>
+<Layout 
+  title={`${frontmatter.title} | Gallery | AndrixNg1`}
+  description={frontmatter.description}
+  image={frontmatter.thumbnail}
+>
   <section class="animate-fade-in">
     <Card className="relative overflow-hidden">
       <!-- Decorative Glow -->
