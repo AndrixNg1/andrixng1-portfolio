@@ -10,18 +10,20 @@ interface Props {
 	description?: string;
 	image?: string;
 	url?: string;
+	lang?: 'en' | 'fr';
 }
 
 const { 
 	title,
 	description = "Fullstack Software Engineer specializing in scalable backend systems, modern frontend development, SaaS platforms, API engineering, DevOps and immersive digital experiences. Explore projects, UI/UX designs, SmartCity Lite, AOI-Mail and more.",
 	image = "/images/me/and1.jpg",
-	url = "https://andrixng1.com"
+	url = "https://andrixng1.com",
+	lang = "en"
 } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang={lang} class="dark">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -40,6 +42,8 @@ const {
 		<meta property="og:image" content={image} />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={url} />
+		<meta property="og:locale" content={lang === 'fr' ? 'fr_FR' : 'en_US'} />
+		<meta property="og:locale:alternate" content={lang === 'fr' ? 'en_US' : 'fr_FR'} />
 		
 		<!-- Twitter / X -->
 		<meta name="twitter:card" content="summary_large_image" />
