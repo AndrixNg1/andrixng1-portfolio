@@ -1,7 +1,7 @@
 ---
 title: "Figma Maquette – Desktop"
 description: "Desktop wireframe and mockup design created in Figma for a premium web application."
-thumbnail: "/images/gallery-project/figma-maquette1.png"
+thumbnail: "/images/gallery-project/figma1/figma-maquette1.png"
 images:
   - "/images/gallery-project/figma1/figma-maquette1.png"
   - "/images/gallery-project/figma1/2.png"
