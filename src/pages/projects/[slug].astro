@@ -1,0 +1,161 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { projects } from "../../data/projects";
+import SectionLabel from "../../components/ui/SectionLabel.astro";
+import Button from "../../components/ui/Button.astro";
+
+export async function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.title.toLowerCase().replaceAll(" ", "-") },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+---
+
+<BaseLayout
+  title={`${project.title} | Case Study`}
+  description={project.description}
+>
+  <article
+    class="relative min-h-screen bg-[var(--bg)] text-[var(--text)] pt-32 pb-24"
+  >
+    <div
+      class="mx-auto w-[calc(100%_-_2rem)] max-w-[1440px] lg:w-[calc(100%_-_3rem)]"
+    >
+      <header class="mb-16 max-w-4xl">
+        <div class="mb-8 flex items-center gap-4">
+          <a
+            href="/#projects"
+            class="inline-flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.18em] text-[var(--muted)] transition-colors hover:text-[var(--text)]"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg
+            >
+            Back to projects
+          </a>
+          <span class="text-[var(--line)]">|</span>
+          <SectionLabel number="04" label={project.category} />
+        </div>
+
+        <h1
+          class="mb-8 text-[clamp(3rem,6vw,5.5rem)] font-black uppercase leading-[0.9] text-[var(--text)]"
+        >
+          {project.title}
+        </h1>
+        <p
+          class="text-[clamp(1.15rem,2vw,1.45rem)] leading-8 text-[var(--white-soft)]"
+        >
+          {project.description}
+        </p>
+
+        <div class="mt-10 flex flex-wrap items-center gap-6">
+          {
+            project.link && (
+              <Button
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Live Project
+              </Button>
+            )
+          }
+          {
+            project.github && (
+              <Button
+                href={project.github}
+                variant="secondary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Source Code
+              </Button>
+            )
+          }
+        </div>
+      </header>
+
+      <figure
+        class="mb-24 overflow-hidden border border-[var(--line)] bg-[var(--surface-strong)] shadow-[0_32px_90px_var(--shadow-accent)]"
+      >
+        <img
+          class="w-full object-cover aspect-[16/9] lg:aspect-[21/9]"
+          src={project.image}
+          alt={`Screenshot of ${project.title}`}
+        />
+      </figure>
+
+      <div class="grid gap-16 lg:grid-cols-[1fr_2fr]">
+        <aside>
+          <div class="sticky top-32 border-t border-[var(--line)] pt-8">
+            <h3
+              class="mb-6 font-mono text-xs font-black uppercase tracking-[0.22em] text-[var(--cyan)]"
+            >
+              Technologies Used
+            </h3>
+            <ul class="flex flex-col gap-3">
+              {
+                project.technologies.map((tech) => (
+                  <li class="inline-flex items-center gap-2 text-sm font-extrabold uppercase tracking-widest text-[var(--text)]">
+                    <span class="h-1.5 w-1.5 rounded-full bg-[var(--orange)]" />
+                    {tech}
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </aside>
+
+        <div class="prose prose-invert max-w-none">
+          <h2
+            class="text-3xl font-black uppercase tracking-tight text-[var(--text)] mb-6"
+          >
+            Design & Architecture
+          </h2>
+          <p class="text-lg leading-relaxed text-[var(--muted)] mb-8">
+            This project required a meticulous approach to both UI/UX and
+            backend stability. The design language was created to reflect a
+            premium, highly responsive interface that feels intuitive from the
+            very first interaction.
+          </p>
+
+          <div
+            class="mb-12 border-l-4 border-[var(--cyan)] bg-[var(--surface-strong)] p-8"
+          >
+            <h4
+              class="mb-2 font-mono text-xs font-black uppercase tracking-[0.2em] text-[var(--cyan)]"
+            >
+              Key Challenge
+            </h4>
+            <p class="text-[var(--text)] m-0">
+              Balancing complex data flows with smooth motion design, ensuring
+              that performance remained top-tier across all devices.
+            </p>
+          </div>
+
+          <h2
+            class="text-3xl font-black uppercase tracking-tight text-[var(--text)] mb-6"
+          >
+            Maquette & Details
+          </h2>
+          <p class="text-lg leading-relaxed text-[var(--muted)] mb-8">
+            The mockups were crafted with a focus on dark mode aesthetics,
+            utilizing a strong grid system and distinct typography. (More
+            specific case study content, Figma embeds, or architecture diagrams
+            can be added here).
+          </p>
+        </div>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

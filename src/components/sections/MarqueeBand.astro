@@ -1,0 +1,15 @@
+---
+import { marqueeItems } from "../../data/page-content";
+
+const items = [...marqueeItems, ...marqueeItems, ...marqueeItems];
+---
+
+<section class="marquee-band relative overflow-hidden bg-[var(--cyan)] py-8" aria-label="Expertise">
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(255,255,255,0.16),transparent_28%),linear-gradient(90deg,rgba(242,91,24,0.2),transparent_36%,rgba(255,255,255,0.08))]" aria-hidden="true"></div>
+  <div class="marquee-line relative flex w-max gap-8 whitespace-nowrap py-3">
+    {items.map((item) => <span class="text-[clamp(1.7rem,4vw,4rem)] font-black uppercase text-white/35">{item}</span>)}
+  </div>
+  <div class="marquee-line reverse relative flex w-max gap-8 whitespace-nowrap py-3">
+    {items.map((item) => <span class="text-[clamp(1.7rem,4vw,4rem)] font-black uppercase text-white/35">{item}</span>)}
+  </div>
+</section>

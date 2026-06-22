@@ -1,0 +1,31 @@
+---
+import SectionLabel from "../ui/SectionLabel.astro";
+import SkillPill from "../ui/SkillPill.astro";
+import { skills } from "../../data/skills";
+
+const groupedSkills = skills.reduce<Record<string, typeof skills>>((groups, skill) => {
+  groups[skill.category] ??= [];
+  groups[skill.category].push(skill);
+  return groups;
+}, {});
+---
+
+<section class="mx-auto w-[calc(100%_-_2rem)] max-w-[1440px] py-20 lg:w-[calc(100%_-_3rem)] lg:py-28" id="skills">
+  <div class="mb-16 grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+    <SectionLabel number="05" label="Tech stack" />
+    <h2 class="text-[clamp(2.35rem,5.1vw,5.8rem)] font-black uppercase leading-[0.9] text-[var(--text)]">A wide stack, organized for practical delivery.</h2>
+  </div>
+
+  <div class="grid gap-px bg-[var(--line)] lg:grid-cols-3">
+    {
+      Object.entries(groupedSkills).map(([category, items]) => (
+        <article class="min-h-80 bg-[var(--panel)] p-6">
+          <span class="font-mono text-xs font-black uppercase tracking-[0.22em] text-[var(--cyan)]">{category}</span>
+          <div class="mt-10 flex flex-wrap gap-3">
+            {items.map((skill) => <SkillPill skill={skill} />)}
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>

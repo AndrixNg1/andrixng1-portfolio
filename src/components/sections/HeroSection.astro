@@ -1,0 +1,88 @@
+---
+import Button from "../ui/Button.astro";
+import { profile } from "../../data/profile";
+---
+
+<section
+  class="hero-section relative min-h-screen overflow-hidden bg-[#07090a]"
+  id="profile"
+>
+  <img
+    class="hero-image absolute inset-0 h-full w-full object-cover object-[center_top] lg:object-[80%_15%]"
+    src={profile.heroImage}
+    alt=""
+    loading="eager"
+    decoding="async"
+  />
+  <div class="hero-overlay absolute inset-0"></div>
+  <div class="hero-grid absolute inset-0" aria-hidden="true"></div>
+
+  <div
+    class="hero-inner relative mx-auto flex min-h-screen w-[calc(100%_-_2rem)] max-w-[1440px] flex-col justify-center gap-16 pt-32 pb-12 lg:w-[calc(100%_-_3rem)]"
+  >
+    <div>
+      <div
+        class="eyebrow mb-8 flex flex-wrap items-center gap-3 text-[11px] font-black uppercase tracking-[0.3em] text-[var(--muted)]"
+      >
+        <span class="h-2.5 w-2.5 rounded-full bg-[var(--orange)]"></span>
+        <strong class="font-mono text-[var(--cyan)]">{profile.handle}</strong>
+        <em class="not-italic text-white/40">Portfolio 2026</em>
+      </div>
+
+      <h1
+        class="mb-8 max-w-5xl text-[clamp(3.6rem,9vw,8.4rem)] font-black uppercase leading-[0.82] tracking-normal text-[var(--text)]"
+      >
+        Building<br />software with impact.
+      </h1>
+
+      <p
+        class="max-w-3xl text-[clamp(1.15rem,2vw,1.45rem)] leading-8 text-[var(--white-soft)]"
+      >
+        {profile.shortDescription}
+      </p>
+      <p class="mt-4 max-w-2xl text-base leading-8 text-[var(--muted)]">
+        {profile.longDescription}
+      </p>
+
+      <div class="mt-9 flex flex-wrap gap-4">
+        <Button href="#projects">View projects</Button>
+        <Button href={`mailto:${profile.email}`} variant="secondary"
+          >Contact me</Button
+        >
+      </div>
+    </div>
+
+    <dl
+      class="grid border border-[var(--line)] bg-black/45 shadow-[0_28px_80px_var(--shadow-accent)] backdrop-blur-lg sm:grid-cols-3"
+    >
+      <div class="border-b border-[var(--line)] p-6 sm:border-r sm:border-b-0">
+        <dt
+          class="mb-2 font-mono text-xs font-black uppercase tracking-[0.22em] text-[var(--cyan)]"
+        >
+          Profile
+        </dt>
+        <dd class="m-0 font-extrabold text-[var(--text)]">{profile.title}</dd>
+      </div>
+      <div class="border-b border-[var(--line)] p-6 sm:border-r sm:border-b-0">
+        <dt
+          class="mb-2 font-mono text-xs font-black uppercase tracking-[0.22em] text-[var(--cyan)]"
+        >
+          Location
+        </dt>
+        <dd class="m-0 font-extrabold text-[var(--text)]">
+          {profile.location}
+        </dd>
+      </div>
+      <div class="p-6">
+        <dt
+          class="mb-2 font-mono text-xs font-black uppercase tracking-[0.22em] text-[var(--cyan)]"
+        >
+          Focus
+        </dt>
+        <dd class="m-0 font-extrabold text-[var(--text)]">
+          Frontend, backend, SaaS and premium UI
+        </dd>
+      </div>
+    </dl>
+  </div>
+</section>

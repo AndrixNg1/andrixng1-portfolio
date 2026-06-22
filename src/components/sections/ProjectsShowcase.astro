@@ -1,0 +1,56 @@
+---
+import SectionLabel from "../ui/SectionLabel.astro";
+import { projects } from "../../data/projects";
+---
+
+<section id="projects" class="demo-showcase relative bg-[var(--bg)] text-[var(--text)]">
+  <div class="mx-auto w-[calc(100%_-_2rem)] max-w-[1440px] py-20 lg:w-[calc(100%_-_3rem)] lg:py-28">
+    <SectionLabel number="04" label="Featured projects" />
+    <h2 class="max-w-5xl text-[clamp(2.4rem,5.3vw,5.9rem)] font-black uppercase leading-[0.92]">Selected work that shows the engineering range.</h2>
+    <p class="mt-6 max-w-3xl text-lg leading-8 text-[var(--muted)]">Each project represents a different side of the work: portfolio systems, performance tooling, enterprise interfaces, corporate platforms and backend APIs.</p>
+  </div>
+
+  <div class="demo-scroll relative lg:h-[500vh]" data-demo-horizontal>
+    <div class="demo-sticky lg:sticky lg:top-0 lg:h-screen lg:overflow-hidden">
+      <div class="demo-track grid lg:flex lg:h-screen lg:w-max" data-demo-horizontal-track>
+        {
+          projects.map((project, index) => (
+            <article class="demo-panel relative flex min-h-screen items-center overflow-hidden border-y border-[var(--line)] px-4 py-24 lg:h-screen lg:w-screen lg:px-10">
+              <img class="absolute inset-0 h-full w-full object-cover object-top" src={project.image} alt="" loading={index === 0 ? "eager" : "lazy"} decoding="async" />
+              <div class="absolute inset-0 bg-[linear-gradient(90deg,var(--hero-overlay-a)_0%,var(--hero-overlay-b)_36%,var(--hero-overlay-c)_70%,var(--hero-overlay-d)_100%)]"></div>
+              <div class="absolute inset-0 bg-[radial-gradient(circle_at_82%_18%,color-mix(in_srgb,var(--cyan)_20%,transparent),transparent_28%),radial-gradient(circle_at_14%_78%,color-mix(in_srgb,var(--orange)_18%,transparent),transparent_24%)]" aria-hidden="true"></div>
+
+              <div class="relative mx-auto w-full max-w-[1440px]">
+                <div class="flex min-h-[38rem] max-w-3xl flex-col justify-between border border-[color-mix(in_srgb,var(--cyan)_42%,transparent)] bg-black/25 p-6 shadow-[0_32px_80px_var(--shadow-accent)] backdrop-blur-sm lg:p-10">
+                  <div>
+                    <div class="mb-10 flex items-center gap-4 border-b border-[color-mix(in_srgb,var(--cyan)_32%,transparent)] pb-7">
+                      <span class="text-[var(--orange)]">-&gt;</span>
+                      <strong class="font-mono text-xs font-black uppercase tracking-[0.26em] text-[var(--cyan)]">{String(index + 1).padStart(2, "0")} / {project.category}</strong>
+                    </div>
+                    <h3 class="text-[clamp(2.7rem,5.8vw,6.2rem)] font-black uppercase leading-[0.86] text-white">{project.title}</h3>
+                    <p class="mt-7 max-w-2xl text-base leading-8 text-white/75 lg:text-xl">{project.description}</p>
+                  </div>
+
+                  <div>
+                    <div class="tag-row mt-8 flex flex-wrap gap-3">
+                      {project.technologies.map((tech) => <span class="border border-[color-mix(in_srgb,var(--cyan)_34%,transparent)] bg-white/8 px-4 py-2 text-xs font-black uppercase tracking-[0.12em] text-white/85">{tech}</span>)}
+                    </div>
+                    <div class="mt-8 flex flex-wrap gap-3">
+                      {project.link && <a class="bg-[var(--orange)] px-4 py-3 font-mono text-xs font-black uppercase tracking-[0.18em] text-white transition hover:-translate-y-0.5 hover:bg-[var(--cyan)]" href={project.link} target="_blank" rel="noopener noreferrer">Live project</a>}
+                      {project.github && <a class="bg-[var(--orange)] px-4 py-3 font-mono text-xs font-black uppercase tracking-[0.18em] text-white transition hover:-translate-y-0.5 hover:bg-[var(--cyan)]" href={project.github} target="_blank" rel="noopener noreferrer">Source code</a>}
+                      <a class="group flex items-center gap-2 bg-[var(--cyan)] px-4 py-3 font-mono text-xs font-black uppercase tracking-[0.18em] text-white transition hover:-translate-y-0.5 hover:bg-[var(--cyan-strong)]" href={`/projects/${project.title.toLowerCase().replaceAll(" ", "-")}`}>
+                        View Case Study
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:translate-x-1"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <p class="absolute right-0 bottom-0 hidden font-mono text-[11px] font-black uppercase tracking-[0.26em] text-white/70 lg:block">Project / {project.title.toLowerCase().replaceAll(" ", "-")}</p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

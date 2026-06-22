@@ -1,0 +1,69 @@
+---
+import SectionLabel from "../ui/SectionLabel.astro";
+import { presentationSlides } from "../../data/page-content";
+---
+
+<section id="presentation" class="presentation-section relative bg-[var(--bg)] pt-24 text-[var(--text)]">
+  <div class="presentation-mobile-title mx-auto mb-8 w-[calc(100%_-_2rem)] max-w-[1440px] lg:hidden">
+    <SectionLabel number="02" label="Engineering approach" />
+    <h2 class="max-w-3xl text-[clamp(2.4rem,12vw,4rem)] font-black uppercase leading-[0.92]">The work, in three concrete moves.</h2>
+  </div>
+
+  <div class="presentation-desktop relative hidden border-y border-[var(--line)] bg-[var(--bg)] lg:block" data-presentation-scroll>
+    <div class="presentation-bg absolute inset-0" aria-hidden="true"></div>
+    <div class="presentation-layout relative mx-auto grid w-[calc(100%_-_5rem)] max-w-[1440px] grid-cols-[5fr_7fr] gap-16">
+      <div>
+        <div class="presentation-sticky sticky top-0 flex h-screen flex-col justify-center">
+          <SectionLabel number="02" label="Engineering approach" />
+          <h2 class="max-w-xl text-[clamp(2.8rem,4.8vw,5.1rem)] font-black uppercase leading-[0.9]">Ideas<br />to systems.</h2>
+
+          <div class="presentation-copy-stack relative mt-12 min-h-96">
+            {
+              presentationSlides.map((slide, index) => (
+                <article class={`presentation-copy absolute inset-0 ${index === 0 ? "is-active" : ""}`} data-presentation-copy={index} aria-hidden={index === 0 ? "false" : "true"}>
+                  <p class="font-mono text-xs font-black uppercase tracking-[0.26em] text-[var(--cyan)]">{slide.number} / {slide.kicker}</p>
+                  <h3 class="mt-5 mb-6 max-w-xl text-[clamp(2rem,3vw,3.2rem)] font-black leading-[0.95]">{slide.title}</h3>
+                  <span class="block max-w-xl text-lg leading-8 text-[var(--muted)]">{slide.body}</span>
+                  <strong class="mt-8 inline-flex border-l-4 border-[var(--orange)] bg-[color-mix(in_srgb,var(--cyan)_12%,transparent)] px-5 py-4 font-mono text-xs font-black uppercase tracking-[0.22em] text-[#9fd8e5]">{slide.metric}</strong>
+                </article>
+              ))
+            }
+          </div>
+
+          <div class="presentation-dots mt-8 flex gap-3" aria-hidden="true">
+            {presentationSlides.map((_, index) => <span class={index === 0 ? "is-active" : ""} data-presentation-dot={index}></span>)}
+          </div>
+        </div>
+      </div>
+
+      <div class="presentation-image-column grid gap-24 py-[18vh]">
+        {
+          presentationSlides.map((slide, index) => (
+            <figure class="presentation-image-card relative m-0 min-h-[76vh] overflow-hidden border border-[var(--line)] bg-[#101416] shadow-[0_32px_90px_var(--shadow-accent)]" data-presentation-card={index}>
+              <img class="absolute inset-0 h-full w-full object-cover object-top" src={slide.image} alt={slide.alt} loading={index === 0 ? "eager" : "lazy"} decoding="async" />
+              <figcaption class="absolute inset-x-6 bottom-6 z-10 flex justify-between gap-4">
+                <span class="bg-white/90 px-4 py-3 font-mono text-[11px] font-black uppercase tracking-[0.22em] text-[var(--cyan-strong)]">{slide.kicker}</span>
+                <strong class="bg-[var(--orange)] px-4 py-3 font-mono text-[11px] font-black uppercase tracking-[0.22em] text-white">{slide.number}</strong>
+              </figcaption>
+            </figure>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="presentation-mobile-list mx-auto grid w-[calc(100%_-_2rem)] max-w-[1440px] gap-4 pb-20 lg:hidden">
+    {
+      presentationSlides.map((slide) => (
+        <article class="overflow-hidden border border-[var(--line)] bg-[var(--panel)]">
+          <img class="aspect-[16/10] w-full object-cover object-top" src={slide.image} alt={slide.alt} loading="lazy" decoding="async" />
+          <div class="p-6">
+            <p class="font-mono text-xs font-black uppercase tracking-[0.26em] text-[var(--cyan)]">{slide.number} / {slide.kicker}</p>
+            <h3 class="mt-4 mb-4 text-2xl font-black leading-tight text-[var(--text)]">{slide.title}</h3>
+            <span class="text-sm leading-7 text-[var(--muted)]">{slide.body}</span>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>

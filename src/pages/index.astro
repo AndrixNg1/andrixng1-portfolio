@@ -1,12 +1,21 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import About from "../components/Sections/About.astro";
-import Skills from "../components/Sections/Skills.astro";
-import Services from "../components/Sections/Services.astro";
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { profile } from '../data/profile';
+import HeroSection from '../components/sections/HeroSection.astro';
+import MarqueeBand from '../components/sections/MarqueeBand.astro';
+import PresentationSection from '../components/sections/PresentationSection.astro';
+import CapabilitiesSection from '../components/sections/CapabilitiesSection.astro';
+import ProjectsShowcase from '../components/sections/ProjectsShowcase.astro';
+import TechStackSection from '../components/sections/TechStackSection.astro';
+import ContactSection from '../components/sections/ContactSection.astro';
 ---
 
-<Layout title="Home | AndrixNg1">
-  <About />
-  <Skills />
-  <Services />
-</Layout>
+<BaseLayout title={`Portfolio | ${profile.name}`} description={profile.shortDescription}>
+  <HeroSection />
+  <MarqueeBand />
+  <PresentationSection />
+  <CapabilitiesSection />
+  <ProjectsShowcase />
+  <TechStackSection />
+  <ContactSection />
+</BaseLayout>
