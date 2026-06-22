@@ -1,0 +1,52 @@
+---
+import SectionLabel from "../ui/SectionLabel.astro";
+import { capabilities } from "../../data/page-content";
+---
+
+<section id="capabilities" class="capabilities-section relative bg-[color-mix(in_srgb,var(--bg)_72%,#f7fbfc)]">
+  <div class="mx-auto w-[calc(100%_-_2rem)] max-w-[1440px] py-20 lg:w-[calc(100%_-_3rem)] lg:py-28">
+    <SectionLabel number="03" label="Capabilities" />
+    <h2 class="max-w-5xl text-[clamp(2.4rem,5.3vw,5.9rem)] font-black uppercase leading-[0.92] text-[var(--text)]">What I can build, ship and maintain.</h2>
+    <p class="mt-6 max-w-3xl text-lg leading-8 text-[var(--muted)]">These are the practical areas where I help clients and teams move from concept to real product quality.</p>
+  </div>
+
+  <div class="relative">
+    {
+      capabilities.map((item, index) => (
+        <article
+          class="capability-card sticky top-0 flex min-h-screen items-center overflow-hidden border-y border-[var(--line)] bg-[var(--bg)] px-4 py-24 text-[var(--text)] shadow-[0_-28px_80px_var(--shadow-accent)]"
+          style={`z-index: ${index + 1};`}
+        >
+          <div class="absolute inset-0 opacity-85 bg-[radial-gradient(circle_at_82%_18%,color-mix(in_srgb,var(--cyan)_24%,transparent),transparent_28%),radial-gradient(circle_at_14%_78%,color-mix(in_srgb,var(--orange)_18%,transparent),transparent_24%)]" aria-hidden="true"></div>
+
+          <div class="relative mx-auto w-full max-w-[1440px]">
+            <div class="mb-12 flex items-center justify-between gap-8 border-b border-[var(--line)] pb-8">
+              <div class="flex items-center gap-4">
+                <span class="text-[var(--orange)]">-&gt;</span>
+                <strong class="font-mono text-xs font-black uppercase tracking-[0.26em] text-[var(--cyan)]">{item.number} / Capability</strong>
+              </div>
+              <em class="hidden bg-[color-mix(in_srgb,var(--cyan)_12%,transparent)] px-4 py-2 font-mono text-[11px] font-black not-italic uppercase tracking-[0.26em] text-[var(--cyan)] sm:inline-flex">AndrixNg1</em>
+            </div>
+
+            <div class="grid gap-12 lg:grid-cols-[minmax(0,1.25fr)_minmax(320px,0.75fr)] lg:items-end">
+              <div>
+                <span class="font-mono text-[clamp(4rem,10vw,9rem)] font-black leading-none opacity-20">{item.number}</span>
+                <h3 class="-mt-4 max-w-5xl text-[clamp(2.65rem,5.8vw,6.2rem)] font-black uppercase leading-[0.92]">{item.title}</h3>
+              </div>
+
+              <div>
+                <p class="text-base leading-8 opacity-80 lg:text-xl">{item.body}</p>
+                <div class="mt-8 flex flex-wrap gap-3 border-t border-[var(--line)] pt-6">
+                  {item.tags.map((tag) => <span class="border border-[var(--line)] bg-[var(--panel-soft)] px-4 py-2 font-mono text-[11px] font-black uppercase tracking-[0.16em] text-[var(--cyan)]">{tag}</span>)}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="absolute bottom-0 left-0 h-2 w-2/3 bg-[var(--cyan)]"></div>
+          <div class="absolute bottom-0 left-2/3 h-2 w-1/3 bg-[var(--orange)]"></div>
+        </article>
+      ))
+    }
+  </div>
+</section>

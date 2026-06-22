@@ -1,0 +1,14 @@
+---
+import type { Skill } from "../../data/skills";
+
+interface Props {
+  skill: Skill;
+}
+
+const { skill } = Astro.props;
+---
+
+<span class="skill-pill inline-flex min-h-12 w-12 max-w-full cursor-default items-center overflow-hidden rounded-full border border-[var(--line)] bg-[color-mix(in_srgb,var(--surface-strong)_76%,transparent)] text-[var(--text)] transition-all duration-300 hover:w-[min(13rem,100%)] hover:border-[var(--cyan)] hover:bg-[color-mix(in_srgb,var(--cyan)_12%,var(--panel))] hover:shadow-[0_16px_34px_var(--shadow-accent)]" title={skill.name}>
+  <i class={`${skill.icon} grid h-12 w-12 shrink-0 place-items-center text-xl`} aria-hidden="true"></i>
+  <strong class="min-w-max pr-4 text-xs font-black uppercase tracking-[0.08em]">{skill.name}</strong>
+</span>

@@ -1,0 +1,31 @@
+---
+import { profile } from "../../data/profile";
+
+const links = [
+  { label: "Approach", href: "#presentation" },
+  { label: "Capabilities", href: "#capabilities" },
+  { label: "Projects", href: "#projects" },
+  { label: "Stack", href: "#skills" },
+  { label: "Email", href: `mailto:${profile.email}` },
+];
+---
+
+<footer class="mx-auto mb-8 grid w-[calc(100%_-_2rem)] max-w-[1440px] gap-8 border-t border-[var(--line)] pt-8 text-[var(--muted)] lg:w-[calc(100%_-_3rem)] lg:grid-cols-[minmax(0,1fr)_auto]">
+  <div>
+    <a class="mb-3 inline-flex text-lg font-black uppercase tracking-[0.08em] text-[var(--text)]" href="#profile">AndrixNg1</a>
+    <p class="max-w-xl leading-7">Software Engineer based in Lubumbashi, building scalable products, premium interfaces and reliable APIs.</p>
+  </div>
+
+  <nav class="flex flex-wrap gap-3 lg:justify-end" aria-label="Footer navigation">
+    {
+      links.map((link) => (
+        <a class="group flex items-center gap-1 overflow-hidden border border-[var(--line)] px-3 py-2 text-[11px] font-black uppercase tracking-[0.12em] transition-all duration-300 hover:border-[var(--cyan)] hover:bg-[color-mix(in_srgb,var(--cyan)_12%,transparent)] hover:px-5 hover:text-[var(--text)]" href={link.href}>
+          <span>{link.label}</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-[-12px] opacity-0 transition-all duration-300 group-hover:ml-1 group-hover:opacity-100"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      ))
+    }
+  </nav>
+
+  <span class="border-t border-[var(--line)] pt-4 text-xs lg:col-span-2">© {new Date().getFullYear()} {profile.name}. All rights reserved.</span>
+</footer>
