@@ -12,7 +12,14 @@ const links = [
 
 <footer class="mx-auto mb-8 grid w-[calc(100%_-_2rem)] max-w-[1440px] gap-8 border-t border-[var(--line)] pt-8 text-[var(--muted)] lg:w-[calc(100%_-_3rem)] lg:grid-cols-[minmax(0,1fr)_auto]">
   <div>
-    <a class="mb-3 inline-flex text-lg font-black uppercase tracking-[0.08em] text-[var(--text)]" href="#profile">{profile.name}</a>
+    <a class="group mb-5 flex items-center gap-3 text-[var(--text)]" href="#profile" aria-label="Andrix Ng home">
+      <img class="h-9 w-9 object-contain transition-transform duration-500 group-hover:-rotate-6 group-hover:scale-110 lg:h-10 lg:w-10" src="/images/logo/andrix-ng.png" alt="" />
+      <span class="flex items-center font-sans text-lg tracking-[0.15em]">
+        <strong class="font-black uppercase text-[var(--text)]">Andrix</strong>
+        <span class="mx-[2px] text-2xl font-black text-[var(--cyan)] leading-none mb-1">.</span>
+        <span class="font-medium uppercase text-[var(--muted)]">Ng</span>
+      </span>
+    </a>
     <p class="max-w-xl leading-7">Full-Stack Developer based in Lubumbashi, building scalable products, premium interfaces, and reliable APIs.</p>
   </div>
 
