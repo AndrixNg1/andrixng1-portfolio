@@ -36,8 +36,8 @@ import { projects } from "../../data/projects";
                       {project.technologies.map((tech) => <span class="border border-[color-mix(in_srgb,var(--cyan)_34%,transparent)] bg-white/8 px-4 py-2 text-xs font-black uppercase tracking-[0.12em] text-white/85">{tech}</span>)}
                     </div>
                     <div class="mt-8 flex flex-wrap gap-3">
-                      {project.link && <a class="bg-[var(--orange)] px-4 py-3 font-mono text-xs font-black uppercase tracking-[0.18em] text-white transition hover:-translate-y-0.5 hover:bg-[var(--cyan)]" href={project.link} target="_blank" rel="noopener noreferrer">Live project</a>}
-                      {project.github && <a class="bg-[var(--orange)] px-4 py-3 font-mono text-xs font-black uppercase tracking-[0.18em] text-white transition hover:-translate-y-0.5 hover:bg-[var(--cyan)]" href={project.github} target="_blank" rel="noopener noreferrer">Source code</a>}
+                      {project.link && <a class="bg-[var(--orange)] px-4 py-3 font-mono text-xs font-black uppercase tracking-[0.18em] text-white transition hover:-translate-y-0.5 hover:bg-[var(--cyan)]" href={project.link} target="_blank" rel="noopener noreferrer">Live Demo</a>}
+                      {project.github && <a class="bg-[var(--orange)] px-4 py-3 font-mono text-xs font-black uppercase tracking-[0.18em] text-white transition hover:-translate-y-0.5 hover:bg-[var(--cyan)]" href={project.github} target="_blank" rel="noopener noreferrer">GitHub</a>}
                       <a class="group flex items-center gap-2 bg-[var(--cyan)] px-4 py-3 font-mono text-xs font-black uppercase tracking-[0.18em] text-white transition hover:-translate-y-0.5 hover:bg-[var(--cyan-strong)]" href={`/projects/${project.title.toLowerCase().replaceAll(" ", "-")}`}>
                         View Case Study
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:translate-x-1"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
