@@ -16,7 +16,7 @@ export const presentationSlides = [
     title: "A solid foundation in software engineering.",
     body: "My background gave me a deep understanding of web architecture, from relational databases to reactive interfaces, including security and performance optimization.",
     metric: "Technical Background",
-    image: "/images/me/an001.png",
+    image: "/images/me/andirxok.png",
     alt: "AndrixNg1 technical background and education",
   },
   {

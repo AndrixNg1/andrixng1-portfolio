@@ -12,7 +12,7 @@ export const profile = {
   x: "https://x.com/andr6102",
   instagram: "https://www.instagram.com/andrix_ngoyi?igsh=MWM0NGQwYWZpNnFlZA==",
   avatar: "/images/me/home.jpeg",
-  heroImage: "/images/me/an002.png",
+  heroImage: "/images/me/andrix1.png",
   shortDescription: "I build web apps, dashboards, APIs, and modern websites.",
   longDescription: "Experienced Full-Stack Developer turning business needs into reliable digital solutions. I specialize in Laravel, Astro, React, Vue.js, Nuxt, Expo, Node.js, and PostgreSQL to build robust architectures and premium interfaces.",
   vision: "Building high-performance, maintainable products that solve real user problems, combining solid backend architecture with refined frontend interfaces.",
