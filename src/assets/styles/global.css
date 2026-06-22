@@ -122,7 +122,7 @@ img {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
-  background: #07090a;
+  background: var(--bg);
 }
 
 .hero-image {
@@ -825,7 +825,7 @@ h1 {
 
 .capabilities-section {
   position: relative;
-  background: color-mix(in srgb, var(--bg) 72%, #f7fbfc);
+  background: var(--bg);
 }
 
 .capabilities-heading {
@@ -838,18 +838,18 @@ h1 {
 .demo-heading h2 {
   max-width: 70rem;
   margin: 0;
-  color: #0a0a0a;
+  color: var(--text);
   font-size: clamp(2.4rem, 5.3vw, 5.9rem);
   font-weight: 950;
   line-height: 0.92;
   text-transform: uppercase;
 }
 
-.capabilities-heading>p:last-child,
-.demo-heading>p:last-child {
+.capabilities-heading > p:last-child,
+.demo-heading > p:last-child {
   max-width: 48rem;
   margin: 1.5rem 0 0;
-  color: #5c666b;
+  color: var(--muted);
   font-size: 1.05rem;
   line-height: 1.8;
 }
@@ -865,7 +865,7 @@ h1 {
   align-items: center;
   min-height: 100vh;
   overflow: hidden;
-  border-block: 1px solid;
+  border-block: 1px solid var(--line);
   padding: 7rem 1.5rem;
 }
 
@@ -887,7 +887,7 @@ h1 {
   justify-content: space-between;
   gap: 2rem;
   margin-bottom: 3rem;
-  border-bottom: 1px solid;
+  border-bottom: 1px solid var(--line);
   padding-bottom: 2rem;
 }
 
@@ -948,7 +948,7 @@ h1 {
   flex-wrap: wrap;
   gap: 0.75rem;
   margin-top: 2rem;
-  border-top: 1px solid;
+  border-top: 1px solid var(--line);
   padding-top: 1.5rem;
 }
 
@@ -1194,7 +1194,7 @@ h1 {
   }
 
   .hero-overlay {
-    background: linear-gradient(90deg, rgba(5, 6, 7, 0.98), rgba(5, 6, 7, 0.72));
+    background: linear-gradient(180deg, var(--hero-overlay-a) 0%, var(--hero-overlay-b) 40%, var(--hero-overlay-c) 70%, var(--hero-overlay-d) 100%);
   }
 
   .hero-stats,
@@ -1224,8 +1224,6 @@ h1 {
   }
 
   .project-card {
-    position: relative;
-    top: auto;
     min-height: auto;
   }
 
@@ -1288,9 +1286,7 @@ h1 {
   }
 
   .capability-card {
-    position: relative;
-    top: auto;
-    min-height: auto;
+    min-height: 80vh;
     padding: 4rem 1rem;
   }
 
@@ -1308,26 +1304,10 @@ h1 {
   }
 
   .demo-scroll {
-    height: auto;
-  }
-
-  .demo-sticky {
-    position: relative;
-    height: auto;
-    overflow: visible;
-  }
-
-  .demo-track {
-    display: grid;
-    width: auto;
-    height: auto;
-    transform: none !important;
+    height: 300vh;
   }
 
   .demo-panel {
-    width: 100%;
-    min-height: 100vh;
-    height: auto;
     padding: 6rem 1rem 3rem;
   }
 

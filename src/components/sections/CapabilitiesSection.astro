@@ -3,7 +3,7 @@ import SectionLabel from "../ui/SectionLabel.astro";
 import { capabilities } from "../../data/page-content";
 ---
 
-<section id="capabilities" class="capabilities-section relative bg-[color-mix(in_srgb,var(--bg)_72%,#f7fbfc)]">
+<section id="capabilities" class="capabilities-section relative bg-[var(--bg)]">
   <div class="mx-auto w-[calc(100%_-_2rem)] max-w-[1440px] py-20 lg:w-[calc(100%_-_3rem)] lg:py-28">
     <SectionLabel number="03" label="Capabilities" />
     <h2 class="max-w-5xl text-[clamp(2.4rem,5.3vw,5.9rem)] font-black uppercase leading-[0.92] text-[var(--text)]">What I can build, ship and maintain.</h2>
@@ -14,7 +14,7 @@ import { capabilities } from "../../data/page-content";
     {
       capabilities.map((item, index) => (
         <article
-          class="capability-card sticky top-0 flex min-h-screen items-center overflow-hidden border-y border-[var(--line)] bg-[var(--bg)] px-4 py-24 text-[var(--text)] shadow-[0_-28px_80px_var(--shadow-accent)]"
+          class="capability-card sticky top-0 flex min-h-[80vh] lg:min-h-screen items-center overflow-hidden border-y border-[var(--line)] bg-[var(--bg)] px-4 py-24 text-[var(--text)] shadow-[0_-28px_80px_var(--shadow-accent)]"
           style={`z-index: ${index + 1};`}
         >
           <div class="absolute inset-0 opacity-85 bg-[radial-gradient(circle_at_82%_18%,color-mix(in_srgb,var(--cyan)_24%,transparent),transparent_28%),radial-gradient(circle_at_14%_78%,color-mix(in_srgb,var(--orange)_18%,transparent),transparent_24%)]" aria-hidden="true"></div>

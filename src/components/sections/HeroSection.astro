@@ -4,10 +4,10 @@ import { profile } from "../../data/profile";
 ---
 
 <section
-  class="hero-section relative min-h-screen overflow-hidden bg-[#07090a]"
+  class="hero-section relative min-h-screen overflow-hidden bg-[var(--bg)]"
   id="profile"
 >
-  <div class="absolute inset-0 bg-[radial-gradient(circle_at_80%_35%,rgba(0,255,255,0.15),transparent_40%)] pointer-events-none"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_80%_35%,color-mix(in_srgb,var(--cyan)_15%,transparent),transparent_40%)] pointer-events-none"></div>
   <img
     class="hero-image absolute inset-0 h-full w-full object-cover object-[center_top] lg:object-[80%_15%] brightness-110 contrast-105"
     src={profile.heroImage}
@@ -62,7 +62,7 @@ import { profile } from "../../data/profile";
     </div>
 
     <dl
-      class="grid border border-[var(--line)] bg-black/45 shadow-[0_28px_80px_var(--shadow-accent)] backdrop-blur-lg sm:grid-cols-3"
+      class="grid border border-[var(--line)] bg-[var(--header-bg)] shadow-[0_28px_80px_var(--shadow-accent)] backdrop-blur-lg sm:grid-cols-3"
     >
       <div class="border-b border-[var(--line)] p-6 sm:border-r sm:border-b-0">
         <dt
