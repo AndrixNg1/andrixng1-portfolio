@@ -16,7 +16,7 @@ const groupedSkills = skills.reduce<Record<string, typeof skills>>((groups, skil
     <h2 class="text-[clamp(2.35rem,5.1vw,5.8rem)] font-black uppercase leading-[0.9] text-[var(--text)]">A wide stack, organized for practical delivery.</h2>
   </div>
 
-  <div class="grid gap-px bg-[var(--line)] lg:grid-cols-3">
+  <div class="grid gap-px bg-[var(--line)] lg:grid-cols-4">
     {
       Object.entries(groupedSkills).map(([category, items]) => (
         <article class="min-h-80 bg-[var(--panel)] p-6">

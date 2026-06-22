@@ -64,11 +64,6 @@ function initDemoHorizontal() {
   if (!section || !track) return;
 
   const update = () => {
-    if (window.matchMedia("(max-width: 960px)").matches) {
-      track.style.transform = "";
-      return;
-    }
-
     const rect = section.getBoundingClientRect();
     const scrollable = section.offsetHeight - window.innerHeight;
     const maxTranslate = track.scrollWidth - window.innerWidth;

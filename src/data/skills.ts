@@ -1,6 +1,6 @@
 export interface Skill {
   name: string;
-  category: 'Frontend' | 'Backend' | 'Tools';
+  category: 'Frontend' | 'Backend' | 'Database' | 'Tools / Deployment';
   icon: string;
 }
 
@@ -21,17 +21,16 @@ export const skills: Skill[] = [
   { name: "NestJS", category: "Backend", icon: "devicon-nestjs-original colored" },
   { name: "Laravel", category: "Backend", icon: "devicon-laravel-original colored" },
   { name: "PHP", category: "Backend", icon: "devicon-php-plain colored" },
-  { name: "PostgreSQL", category: "Backend", icon: "devicon-postgresql-plain colored" },
-  { name: "MongoDB", category: "Backend", icon: "devicon-mongodb-plain colored" },
-  { name: "Redis", category: "Backend", icon: "devicon-redis-plain colored" },
-  { name: "Prisma", category: "Backend", icon: "devicon-prisma-original" },
-  { name: "Docker", category: "Tools", icon: "devicon-docker-plain colored" },
-  { name: "Git", category: "Tools", icon: "devicon-git-plain colored" },
-  { name: "GitHub", category: "Tools", icon: "devicon-github-original" },
-  { name: "AWS", category: "Tools", icon: "devicon-amazonwebservices-plain-wordmark colored" },
-  { name: "Cloudflare", category: "Tools", icon: "devicon-cloudflare-plain colored" },
-  { name: "Vercel", category: "Tools", icon: "devicon-vercel-original" },
-  { name: "Render", category: "Tools", icon: "devicon-render-plain" },
-  { name: "Figma", category: "Tools", icon: "devicon-figma-plain colored" },
-  { name: "Canva", category: "Tools", icon: "devicon-canva-original colored" },
+  { name: "PostgreSQL", category: "Database", icon: "devicon-postgresql-plain colored" },
+  { name: "MongoDB", category: "Database", icon: "devicon-mongodb-plain colored" },
+  { name: "Redis", category: "Database", icon: "devicon-redis-plain colored" },
+  { name: "Prisma", category: "Database", icon: "devicon-prisma-original" },
+  { name: "Docker", category: "Tools / Deployment", icon: "devicon-docker-plain colored" },
+  { name: "Git", category: "Tools / Deployment", icon: "devicon-git-plain colored" },
+  { name: "GitHub", category: "Tools / Deployment", icon: "devicon-github-original" },
+  { name: "AWS", category: "Tools / Deployment", icon: "devicon-amazonwebservices-plain-wordmark colored" },
+  { name: "Cloudflare", category: "Tools / Deployment", icon: "devicon-cloudflare-plain colored" },
+  { name: "Vercel", category: "Tools / Deployment", icon: "devicon-vercel-original" },
+  { name: "Render", category: "Tools / Deployment", icon: "devicon-render-plain" },
+  { name: "Figma", category: "Tools / Deployment", icon: "devicon-figma-plain colored" },
 ];

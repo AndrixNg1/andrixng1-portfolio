@@ -8,31 +8,31 @@ export interface ExperienceItem {
 
 export const experience: ExperienceItem[] = [
   {
-    title: "Développeur Full-Stack",
+    title: "Full-Stack Developer",
     role: "Freelance",
-    period: "2024 - Aujourd'hui",
-    description: "Conception et développement d'applications web modernes, avec une attention forte sur l'architecture, la performance et les interfaces responsives.",
+    period: "2024 - Present",
+    description: "Designing and developing modern web applications with a strong focus on architecture, performance, and responsive interfaces.",
     type: "Work"
   },
   {
-    title: "Projet Alerte Santé",
-    role: "Développeur principal",
+    title: "Alerte Santé Project",
+    role: "Lead Developer",
     period: "2023 - 2024",
-    description: "Développement d'une plateforme de suivi santé avec Next.js et Prisma, depuis le prototype jusqu'à une application plus complète.",
+    description: "Built a health monitoring platform with Next.js and Prisma, from prototype to a fully functional application.",
     type: "Work"
   },
   {
-    title: "Maîtrise du développement web",
-    role: "Formation continue",
+    title: "Web Development Mastery",
+    role: "Continuous Learning",
     period: "2021 - 2023",
-    description: "Approfondissement de React, Astro, Node.js, PHP, CSS avancé et des bonnes pratiques de développement produit.",
+    description: "Deep-dived into React, Astro, Node.js, PHP, advanced CSS, and product development best practices.",
     type: "Education"
   },
   {
-    title: "Premières lignes de code",
-    role: "Début du parcours",
+    title: "First Lines of Code",
+    role: "Beginning of the Journey",
     period: "2019",
-    description: "Découverte de la programmation avec HTML, CSS et PHP, base d'un parcours orienté ingénierie logicielle.",
+    description: "Discovered programming through HTML, CSS, and PHP — the foundation of a software engineering career.",
     type: "Milestone"
   }
 ];

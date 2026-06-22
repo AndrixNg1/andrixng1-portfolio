@@ -10,17 +10,17 @@ import { projects } from "../../data/projects";
     <p class="mt-6 max-w-3xl text-lg leading-8 text-[var(--muted)]">Each project represents a different side of the work: portfolio systems, performance tooling, enterprise interfaces, corporate platforms and backend APIs.</p>
   </div>
 
-  <div class="demo-scroll relative lg:h-[500vh]" data-demo-horizontal>
-    <div class="demo-sticky lg:sticky lg:top-0 lg:h-screen lg:overflow-hidden">
-      <div class="demo-track grid lg:flex lg:h-screen lg:w-max" data-demo-horizontal-track>
+  <div class="demo-scroll relative h-[300vh] lg:h-[500vh]" data-demo-horizontal>
+    <div class="demo-sticky sticky top-0 h-screen overflow-hidden">
+      <div class="demo-track flex h-screen w-max" data-demo-horizontal-track>
         {
           projects.map((project, index) => (
-            <article class="demo-panel relative flex min-h-screen items-center overflow-hidden border-y border-[var(--line)] px-4 py-24 lg:h-screen lg:w-screen lg:px-10">
+            <article class="demo-panel relative flex h-screen w-screen items-center overflow-hidden border-y border-[var(--line)] px-4 py-24 lg:px-10">
               <img class="absolute inset-0 h-full w-full object-cover object-top" src={project.image} alt="" loading={index === 0 ? "eager" : "lazy"} decoding="async" />
               <div class="absolute inset-0 bg-[linear-gradient(90deg,var(--hero-overlay-a)_0%,var(--hero-overlay-b)_36%,var(--hero-overlay-c)_70%,var(--hero-overlay-d)_100%)]"></div>
               <div class="absolute inset-0 bg-[radial-gradient(circle_at_82%_18%,color-mix(in_srgb,var(--cyan)_20%,transparent),transparent_28%),radial-gradient(circle_at_14%_78%,color-mix(in_srgb,var(--orange)_18%,transparent),transparent_24%)]" aria-hidden="true"></div>
 
-              <div class="relative mx-auto w-full max-w-[1440px]">
+              <div class="relative mx-auto w-full max-w-[1440px] mt-10 lg:mt-0">
                 <div class="flex min-h-[38rem] max-w-3xl flex-col justify-between border border-[color-mix(in_srgb,var(--cyan)_42%,transparent)] bg-black/25 p-6 shadow-[0_32px_80px_var(--shadow-accent)] backdrop-blur-sm lg:p-10">
                   <div>
                     <div class="mb-10 flex items-center gap-4 border-b border-[color-mix(in_srgb,var(--cyan)_32%,transparent)] pb-7">
@@ -36,8 +36,8 @@ import { projects } from "../../data/projects";
                       {project.technologies.map((tech) => <span class="border border-[color-mix(in_srgb,var(--cyan)_34%,transparent)] bg-white/8 px-4 py-2 text-xs font-black uppercase tracking-[0.12em] text-white/85">{tech}</span>)}
                     </div>
                     <div class="mt-8 flex flex-wrap gap-3">
-                      {project.link && <a class="bg-[var(--orange)] px-4 py-3 font-mono text-xs font-black uppercase tracking-[0.18em] text-white transition hover:-translate-y-0.5 hover:bg-[var(--cyan)]" href={project.link} target="_blank" rel="noopener noreferrer">Live project</a>}
-                      {project.github && <a class="bg-[var(--orange)] px-4 py-3 font-mono text-xs font-black uppercase tracking-[0.18em] text-white transition hover:-translate-y-0.5 hover:bg-[var(--cyan)]" href={project.github} target="_blank" rel="noopener noreferrer">Source code</a>}
+                      {project.link && <a class="bg-[var(--orange)] px-4 py-3 font-mono text-xs font-black uppercase tracking-[0.18em] text-white transition hover:-translate-y-0.5 hover:bg-[var(--cyan)]" href={project.link} target="_blank" rel="noopener noreferrer">Live Demo</a>}
+                      {project.github && <a class="bg-[var(--orange)] px-4 py-3 font-mono text-xs font-black uppercase tracking-[0.18em] text-white transition hover:-translate-y-0.5 hover:bg-[var(--cyan)]" href={project.github} target="_blank" rel="noopener noreferrer">GitHub</a>}
                       <a class="group flex items-center gap-2 bg-[var(--cyan)] px-4 py-3 font-mono text-xs font-black uppercase tracking-[0.18em] text-white transition hover:-translate-y-0.5 hover:bg-[var(--cyan-strong)]" href={`/projects/${project.title.toLowerCase().replaceAll(" ", "-")}`}>
                         View Case Study
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:translate-x-1"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>

@@ -1,7 +1,7 @@
 export const profile = {
   name: "Andrix Ngoyi",
   handle: "AndrixNg1",
-  title: "Software Engineer",
+  title: "Full-Stack Developer",
   location: "DR Congo, Lubumbashi",
   email: "andrixngoyi243@gmail.com",
   phone: "+243 836 066 402",
@@ -13,13 +13,13 @@ export const profile = {
   instagram: "https://www.instagram.com/andrix_ngoyi?igsh=MWM0NGQwYWZpNnFlZA==",
   avatar: "/images/me/home.jpeg",
   heroImage: "/images/me/an002.png",
-  shortDescription: "I craft elegant, scalable digital solutions with impact.",
-  longDescription: "I'm a passionate Software Engineer focused on premium digital experiences. I build highly interactive, scalable and beautifully designed web applications by bridging complex engineering with elegant product design.",
-  vision: "Deliver exceptional quality that drives business success, from robust backend architecture to refined interfaces and motion-rich product experiences.",
+  shortDescription: "I build web apps, dashboards, APIs, and modern websites.",
+  longDescription: "Experienced Full-Stack Developer turning business needs into reliable digital solutions. I specialize in Laravel, Astro, React, Vue.js, Nuxt, Expo, Node.js, and PostgreSQL to build robust architectures and premium interfaces.",
+  vision: "Building high-performance, maintainable products that solve real user problems, combining solid backend architecture with refined frontend interfaces.",
   goals: [
-    "Frontend systems that feel fast and premium.",
-    "Backend APIs that stay reliable under real usage.",
-    "Product interfaces that are clear, responsive and memorable."
+    "Scalable and secure business applications.",
+    "Performance-optimized databases.",
+    "Modern, responsive, and intuitive interfaces."
   ],
   values: [
     "Premium execution",
