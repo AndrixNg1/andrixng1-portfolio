@@ -10,9 +10,11 @@ const navItems = [
 
 <header class="fixed inset-x-0 top-0 z-50 border-b border-[var(--line)] bg-[var(--header-bg)] backdrop-blur-xl">
   <div class="mx-auto flex h-20 w-[calc(100%_-_2rem)] max-w-[1440px] items-center justify-between gap-4 lg:h-[5.5rem] lg:w-[calc(100%_-_3rem)]">
-    <a class="flex items-center gap-3 text-sm font-black uppercase tracking-[0.08em] text-[var(--text)]" href="/" aria-label="Andrix Ngoyi home">
-      <img class="h-9 w-9 object-contain lg:h-10 lg:w-10" src="/images/logo/andrix-ng.png" alt="" />
-      <span class="hidden sm:inline">Andrix Ngoyi</span>
+    <a class="group flex items-center gap-3 text-sm font-black uppercase tracking-[0.1em] text-[var(--text)]" href="/" aria-label="Andrix Ngoyi home">
+      <div class="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl border border-[var(--line)] bg-[var(--surface-strong)] transition-colors group-hover:border-[var(--cyan)]">
+        <img class="h-6 w-6 object-contain transition-transform duration-500 group-hover:scale-110" src="/images/logo/andrix-ng.png" alt="" />
+      </div>
+      <span class="hidden sm:inline">Andrix<span class="text-[var(--cyan)]">.</span>Ngoyi</span>
     </a>
 
     <nav class="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
