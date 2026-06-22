@@ -47,7 +47,7 @@ export const projects: Project[] = [
     challenge: "Testing local API limits without relying on heavy external tools or risking triggering network firewalls.",
     solution: "Created a Node.js CLI tool targeting only the loopback address (127.0.0.1). It provides accurate metrics on latency and request throughput."
   },
-  {
+  /*{
     title: "TJA Logistics",
     description: "Enterprise logistics platform designed to optimize transport operations with a premium, high-performance user interface.",
     image: "/images/gallery-project/tjal.png",
@@ -68,7 +68,7 @@ export const projects: Project[] = [
     role: "Front-End Developer",
     challenge: "Conveying the prestigious and rigorous image of a financial consulting firm through a modern, high-end digital identity.",
     solution: "Designed a custom interface with Astro, deep styling via Tailwind CSS, and targeted entrance animations with GSAP."
-  },
+  },*/
   {
     title: "API Mail",
     description: "Lightweight PHP microservice for sending transactional emails from web forms simply and securely.",
