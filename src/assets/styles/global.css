@@ -1235,6 +1235,10 @@ h1 {
     padding-top: 5rem;
   }
 
+  .presentation-desktop {
+    display: none;
+  }
+
   .presentation-mobile-title {
     display: block;
     width: min(100% - 2rem, 1440px);
@@ -1248,6 +1252,31 @@ h1 {
     font-weight: 950;
     line-height: 0.92;
     text-transform: uppercase;
+  }
+
+  .presentation-mobile-list {
+    display: grid;
+    gap: 1rem;
+    width: min(100% - 2rem, 1440px);
+    margin: 0 auto;
+    padding-bottom: 5rem;
+  }
+
+  .presentation-mobile-list article {
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: var(--panel);
+  }
+
+  .presentation-mobile-list img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    object-position: top center;
+  }
+
+  .presentation-mobile-list div {
+    padding: 1.4rem;
   }
 
   .capabilities-heading,
