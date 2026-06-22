@@ -10,19 +10,21 @@ export interface Project {
   gallery?: string[];
   challenge?: string;
   solution?: string;
+  role?: string;
 }
 
 export const projects: Project[] = [
   {
     title: "AndrixNg1 Portfolio",
-    description: "My personal developer portfolio, a premium high-performance showcase engineered with Astro, motion design principles and a polished visual system.",
+    description: "Mon portfolio personnel, une vitrine performante développée avec Astro, avec des animations fluides et un design système moderne.",
     image: "/images/gallery-project/portfolio/im1.png",
     category: "Portfolio",
     technologies: ["Astro", "GSAP", "Tailwind", "CSS"],
     github: "https://github.com/AndrixNg1/andrixng1-portfolio",
     featured: true,
-    challenge: "Creating a portfolio that doesn't just list skills, but proves them through its own performance and execution. The challenge was balancing heavy UI animations with 60fps performance and perfect Lighthouse scores.",
-    solution: "I built a custom architecture using Astro for static generation, zero-JS by default, and selectively hydrating GSAP animations. The design system uses fluid typography and CSS variables for seamless dark/light modes.",
+    role: "Lead Developer / Designer",
+    challenge: "Créer un portfolio qui prouve mes compétences techniques par sa performance (60fps, SEO parfait) plutôt que par de simples listes de compétences.",
+    solution: "Utilisation d'Astro pour un rendu statique ultra-rapide (Zero-JS par défaut), combiné à Tailwind CSS pour le style et GSAP pour des animations ciblées.",
     gallery: [
       "/images/gallery-project/portfolio/im1.png",
       "/images/gallery-project/portfolio/image copy.png",
@@ -36,38 +38,46 @@ export const projects: Project[] = [
   },
   {
     title: "Loopback Load Tester",
-    description: "A localhost-only load testing tool that sends bounded high-volume GET traffic to an API so latency, throughput and error rates can be observed under pressure.",
+    description: "Un outil CLI pour tester la charge des APIs en local, permettant de simuler un fort trafic GET et d'observer la latence et les erreurs.",
     image: "/images/gallery-project/3.jpg",
     category: "Performance Tool",
     technologies: ["Node.js", "CLI", "Performance"],
     github: "https://github.com/AndrixNg1/Loopback-Load-Tester",
-    challenge: "Observing how a local API degrades under pressure without relying on external internet-based load testers or complex distributed tools. I needed a simple, isolated tool to test localhost limits safely without triggering network firewalls or performing unintended DDoS attacks.",
-    solution: "Built a specialized Node.js CLI tool that intentionally restricts targeting to loopback addresses (127.0.0.1, ::1). It features simple .env configuration, preflight health checks, and outputs detailed metrics (percentiles, throughput, error counts) to help isolate hotspots in local dockerized APIs."
+    role: "Backend Developer",
+    challenge: "Besoin de tester les limites d'une API locale sans dépendre d'outils externes lourds ni risquer de déclencher des pare-feux réseaux.",
+    solution: "Création d'un outil CLI en Node.js ciblant uniquement l'adresse de bouclage (127.0.0.1). Il fournit des métriques précises sur la latence et le débit de requêtes."
   },
   {
     title: "TJA Logistics",
-    description: "Enterprise logistics platform focused on performance, professional UI and clear transport operations for a logistics company.",
+    description: "Plateforme logistique d'entreprise conçue pour optimiser les opérations de transport avec une interface utilisateur premium et performante.",
     image: "/images/gallery-project/tjal.png",
     category: "Enterprise Web",
     technologies: ["Next.js", "React", "Framer Motion"],
-    link: "https://www.tja-logistics.com/"
+    link: "https://www.tja-logistics.com/",
+    role: "Full-Stack Developer",
+    challenge: "Digitaliser et simplifier la gestion des opérations logistiques d'une entreprise via une interface moderne, intuitive et réactive.",
+    solution: "Développement d'une application robuste avec Next.js et React, en intégrant Framer Motion pour fluidifier l'expérience utilisateur des gestionnaires."
   },
   {
     title: "GRK Prosperity",
-    description: "A premium showcase platform for an accounting, audit and strategic consulting firm based in DRC, with dark mode, motion and high-end aesthetics.",
+    description: "Site vitrine premium pour un cabinet d'expertise comptable, d'audit et de conseil stratégique basé en RDC, intégrant un mode sombre élégant.",
     image: "/images/gallery-project/grk.png",
     category: "Corporate Website",
     technologies: ["Astro", "Tailwind", "GSAP"],
-    link: "https://www.grkprosperity.net/"
+    link: "https://www.grkprosperity.net/",
+    role: "Front-End Developer",
+    challenge: "Transmettre l'image de prestige et de rigueur d'un cabinet de conseil financier à travers une identité numérique moderne et haut de gamme.",
+    solution: "Conception d'une interface sur-mesure avec Astro, stylisation approfondie via Tailwind CSS et implémentation d'animations d'apparition ciblées avec GSAP."
   },
   {
     title: "API Mail",
-    description: "A lightweight API service for sending transactional emails programmatically with simple integration and a clean backend surface.",
+    description: "Microservice léger en PHP permettant l'envoi d'emails transactionnels depuis des formulaires web de manière simple et sécurisée.",
     image: "/images/gallery-project/2.jpg",
     category: "API Service",
     technologies: ["PHP 8.x", "PHPMailer", "CORS", "Security"],
     github: "https://github.com/AndrixNg1/api-mail",
-    challenge: "Static sites and portfolios often need a reliable way to send contact form data without exposing SMTP credentials or setting up heavy backend frameworks, while remaining secure against spam and unauthorized cross-origin requests.",
-    solution: "Developed a secure, agnostic PHP 8 microservice utilizing PHPMailer. It acts as a bridge, accepting JSON payloads via a POST endpoint. It features strict input validation, environment variable protection (.env), and configurable CORS to accept requests only from authorized domains."
+    role: "Backend Developer",
+    challenge: "Fournir un moyen simple et sécurisé d'envoyer des formulaires de contact depuis des sites web statiques sans exposer les identifiants SMTP.",
+    solution: "Développement d'une API autonome en PHP 8 utilisant PHPMailer, incluant la validation stricte des entrées et une gestion CORS configurable."
   }
 ];

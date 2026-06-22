@@ -7,10 +7,11 @@ import { profile } from "../../data/profile";
   class="hero-section relative min-h-screen overflow-hidden bg-[#07090a]"
   id="profile"
 >
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_80%_35%,rgba(0,255,255,0.15),transparent_40%)] pointer-events-none"></div>
   <img
-    class="hero-image absolute inset-0 h-full w-full object-cover object-[center_top] lg:object-[80%_15%]"
+    class="hero-image absolute inset-0 h-full w-full object-cover object-[center_top] lg:object-[80%_15%] brightness-110 contrast-105"
     src={profile.heroImage}
-    alt=""
+    alt="Andrix Ngoyi Portrait"
     loading="eager"
     decoding="async"
   />
@@ -25,14 +26,14 @@ import { profile } from "../../data/profile";
         class="eyebrow mb-8 flex flex-wrap items-center gap-3 text-[11px] font-black uppercase tracking-[0.3em] text-[var(--muted)]"
       >
         <span class="h-2.5 w-2.5 rounded-full bg-[var(--orange)]"></span>
-        <strong class="font-mono text-[var(--cyan)]">{profile.handle}</strong>
+        <strong class="font-mono text-[var(--cyan)]">{profile.name}</strong>
         <em class="not-italic text-white/40">Portfolio 2026</em>
       </div>
 
       <h1
-        class="mb-8 max-w-5xl text-[clamp(3.6rem,9vw,8.4rem)] font-black uppercase leading-[0.82] tracking-normal text-[var(--text)]"
+        class="mb-8 max-w-5xl text-[clamp(3.2rem,8vw,7.5rem)] font-black uppercase leading-[0.82] tracking-normal text-[var(--text)]"
       >
-        Building<br />software with impact.
+        Andrix Ngoyi<br /><span class="text-[var(--cyan)]">Full-Stack Developer</span>
       </h1>
 
       <p
@@ -44,11 +45,19 @@ import { profile } from "../../data/profile";
         {profile.longDescription}
       </p>
 
-      <div class="mt-9 flex flex-wrap gap-4">
-        <Button href="#projects">View projects</Button>
-        <Button href={`mailto:${profile.email}`} variant="secondary"
-          >Contact me</Button
+      <div class="mt-9 flex flex-wrap gap-4 items-center">
+        <Button href="#projects">Voir mes projets</Button>
+        <Button href={`mailto:${profile.email}`} variant="secondary">
+          Me contacter
+        </Button>
+        <a 
+          href="/CV_Andrix_Ngoyi.pdf" 
+          download="CV_Andrix_Ngoyi.pdf"
+          class="group inline-flex h-12 items-center justify-center gap-2 border border-[var(--line)] bg-[var(--surface-strong)] px-8 font-mono text-[11px] font-black uppercase tracking-[0.18em] text-[var(--text)] transition-all hover:border-[var(--cyan)] hover:text-[var(--cyan)]"
         >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:-translate-y-1"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+          Télécharger mon CV
+        </a>
       </div>
     </div>
 
